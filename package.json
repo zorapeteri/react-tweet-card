@@ -11,7 +11,24 @@
   "files": [
     "lib"
   ],
-  "author": "zorapeteri",
+  "author": "Zora Peteri (https://github.com/zorapeteri)",
+  "homepage": "https://github.com/zorapeteri/react-tweet-card#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zorapeteri/react-tweet-card.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zorapeteri/react-tweet-card/issues"
+  },
+  "keywords": [
+    "twitter",
+    "tweet",
+    "card",
+    "react",
+    "component",
+    "responsive",
+    "typescript"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
