@@ -1,0 +1,14 @@
+.details {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 125%;
+    letter-spacing: -0.03em;
+    text-align: start;
+    color: #8E8E8E;
+}
+
+.source {
+    color: #2AA3EF;
+}

@@ -1,0 +1,10 @@
+.tweet {
+    grid-column: 1 / 3;
+    font-family: Inter, sans-serif;
+    color: black;
+    letter-spacing: -0.03em;
+    font-weight: normal;
+    font-size: 175%;
+    margin: 0;
+    text-align: start;
+}

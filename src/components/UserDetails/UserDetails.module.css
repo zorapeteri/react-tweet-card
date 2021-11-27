@@ -1,0 +1,19 @@
+.userDetails {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    width: fit-content;
+    column-gap: 8px;
+    row-gap: 2px;
+    place-items: center;
+}
+
+.userDetails > img {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.userDetails > span {
+    grid-column: 2;
+    place-self: start;
+}
