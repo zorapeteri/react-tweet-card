@@ -6,7 +6,7 @@ type TweetProps = {
 }
 
 const Tweet = ({ text }: TweetProps) => (
-  <p className={css.tweet}>
+  <p className={[css.tweet, text.length > 180 && css.longTweet].filter(Boolean).join(' ')}>
     {text}
   </p>
 );

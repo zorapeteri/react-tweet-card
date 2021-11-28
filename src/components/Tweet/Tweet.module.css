@@ -8,3 +8,7 @@
     margin: 0;
     text-align: start;
 }
+
+.longTweet {
+    font-size: 130%;
+}
