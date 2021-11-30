@@ -1,10 +1,48 @@
-import React from 'react';
-import useContainerDimensions from './useContainerDimensions';
+/* eslint-disable no-plusplus, no-param-reassign */
 
-const useFontSize = (myRef: React.RefObject<HTMLDivElement>) => {
-  const { width, height } = useContainerDimensions(myRef);
-  const fontSize = Math.min(width, height) * 0.04;
-  return `${fontSize}px`;
+import { useEffect, RefObject } from 'react';
+
+function isOverflowing(el: HTMLElement) {
+  return el.clientWidth < el.scrollWidth
+        || el.clientHeight < el.scrollHeight;
+}
+
+function setFontSize(el: HTMLElement, fontSize: number) {
+  el.style.fontSize = `${fontSize}px`;
+}
+
+function getFontSize(el: HTMLElement) {
+  return parseFloat(window.getComputedStyle(el, null).getPropertyValue('font-size').replace('px', ''));
+}
+
+function findFontSizeByStep(el: HTMLElement) {
+  let fontSize = getFontSize(el);
+  while (!isOverflowing(el)) {
+    setFontSize(el, ++fontSize);
+  }
+  while (isOverflowing(el)) {
+    setFontSize(el, --fontSize);
+  }
+}
+
+const useFontSize = (myRef: RefObject<HTMLElement>) => {
+  useEffect(() => {
+    const handleResize = () => {
+      if (myRef?.current) {
+        findFontSizeByStep(myRef?.current);
+      }
+    };
+
+    if (myRef.current) {
+      findFontSizeByStep(myRef.current);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [myRef]);
 };
 
 export default useFontSize;

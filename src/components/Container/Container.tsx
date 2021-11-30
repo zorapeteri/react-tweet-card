@@ -12,14 +12,13 @@ type ContainerProps = {
 
 const Container = ({ children, gradientBackground, transparentBackground } : ContainerProps) => {
   const containerRef = useRef(null);
-  const fontSize = useFontSize(containerRef);
   const twitterLogo = useTwitterLogo(containerRef);
+  useFontSize(containerRef);
 
   return (
     <div
       ref={containerRef}
       className={[css.container, twitterLogo, gradientBackground && css.gradientBackground, transparentBackground && css.transparentBackground].filter(Boolean).join(' ')}
-      style={{ fontSize }}
     >
       {children}
     </div>

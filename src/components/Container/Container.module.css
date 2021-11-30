@@ -5,6 +5,7 @@
     place-content: center;
     background: white;
     box-sizing: border-box;
+    overflow: hidden;
     padding: 2em;
     border-radius: 1.4em;
     row-gap: 1.5em;
