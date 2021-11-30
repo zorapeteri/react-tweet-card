@@ -6,7 +6,7 @@ import Container from './components/Container';
 import TwitterLogo from './components/TwitterLogo';
 import './index.css';
 
-type TweetCardProps = {
+type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
     name: string,
     username: string,
@@ -21,9 +21,9 @@ type TweetCardProps = {
 }
 
 const TweetCard = ({
-  author, tweet, time, source, permalink, gradientBackground, transparentBackground,
+  author, tweet, time, source, permalink, gradientBackground, transparentBackground, ...rest
 } : TweetCardProps) => (
-  <Container {...({ gradientBackground, transparentBackground })}>
+  <Container {...({ gradientBackground, transparentBackground, ...rest })}>
     <UserDetails {...author} />
     <TwitterLogo />
     <Tweet text={tweet} />

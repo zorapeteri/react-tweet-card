@@ -4,14 +4,15 @@ import css from './Container.module.css';
 import './Container.css';
 import useFontSize from '../../hooks/useFontSize';
 
-type ContainerProps = {
+type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
     children: any;
+    className?: string,
     gradientBackground?: boolean;
     transparentBackground?: boolean;
 }
 
 const Container = ({
-  children, gradientBackground, transparentBackground,
+  children, className, gradientBackground, transparentBackground, ...rest
 } : ContainerProps) => {
   const containerRef = useRef(null);
   const twitterLogo = useTwitterLogo(containerRef);
@@ -20,7 +21,8 @@ const Container = ({
   return (
     <div
       ref={containerRef}
-      className={[css.container, twitterLogo, gradientBackground && css.gradientBackground, transparentBackground && css.transparentBackground].filter(Boolean).join(' ')}
+      className={[className, css.container, twitterLogo, gradientBackground && css.gradientBackground, transparentBackground && css.transparentBackground].filter(Boolean).join(' ')}
+      {...rest}
     >
       {children}
     </div>
