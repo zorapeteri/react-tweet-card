@@ -7,7 +7,7 @@
     font-size: 175%;
     margin: 0;
     text-align: start;
-    white-space: pre;
+    white-space: pre-line;
 }
 
 .longTweet {
