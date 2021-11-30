@@ -15,18 +15,19 @@ type TweetCardProps = {
   tweet: string,
   time: Date | string,
   source: string,
+  permalink?: string,
   gradientBackground?: boolean,
-  transparentBackground?: boolean
+  transparentBackground?: boolean,
 }
 
 const TweetCard = ({
-  author, tweet, time, source, gradientBackground, transparentBackground,
+  author, tweet, time, source, permalink, gradientBackground, transparentBackground,
 } : TweetCardProps) => (
   <Container {...({ gradientBackground, transparentBackground })}>
     <UserDetails {...author} />
     <TwitterLogo />
     <Tweet text={tweet} />
-    <Details {...({ time, source })} />
+    <Details {...({ time, source, permalink })} />
   </Container>
 );
 

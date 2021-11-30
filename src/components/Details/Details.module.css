@@ -9,6 +9,15 @@
     color: #8E8E8E;
 }
 
+.details a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.details a:hover, .details a:focus-visible {
+    text-decoration: underline;
+}
+
 .source {
     color: #2AA3EF;
 }

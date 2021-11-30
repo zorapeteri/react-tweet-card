@@ -10,7 +10,9 @@ type ContainerProps = {
     transparentBackground?: boolean;
 }
 
-const Container = ({ children, gradientBackground, transparentBackground } : ContainerProps) => {
+const Container = ({
+  children, gradientBackground, transparentBackground,
+} : ContainerProps) => {
   const containerRef = useRef(null);
   const twitterLogo = useTwitterLogo(containerRef);
   useFontSize(containerRef);

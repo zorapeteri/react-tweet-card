@@ -5,12 +5,19 @@ import css from './Details.module.css';
 type DetailsProps = {
     time: Date | string,
     source: string;
+    permalink?: string;
 }
 
-function Details({ time, source } : DetailsProps) {
+function Details({ time, source, permalink } : DetailsProps) {
+  const formattedTime = time instanceof Date ? formatTweetTime(time) : time;
+
   return (
     <p className={css.details}>
-      {time instanceof Date ? formatTweetTime(time) : time}
+      {permalink ? (
+        <a href={permalink} target="_blank" rel="noreferrer">{formattedTime}</a>
+      ) : (
+        <span>{formattedTime}</span>
+      )}
       {' · '}
       <span className={css.source}>{source}</span>
     </p>
