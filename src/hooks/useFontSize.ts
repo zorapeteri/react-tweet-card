@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus, no-param-reassign */
 
 import { useEffect, RefObject } from 'react';
+import binarySearch from '../utils/binarySearch';
 
 function isOverflowing(el: HTMLElement) {
   return el.clientWidth < el.scrollWidth
@@ -15,34 +16,33 @@ function getFontSize(el: HTMLElement) {
   return parseFloat(window.getComputedStyle(el, null).getPropertyValue('font-size').replace('px', ''));
 }
 
-function findFontSizeByStep(el: HTMLElement) {
-  let fontSize = getFontSize(el);
-  while (!isOverflowing(el)) {
-    setFontSize(el, ++fontSize);
-  }
-  while (isOverflowing(el)) {
-    setFontSize(el, --fontSize);
+function findFontSizeBinary(el: HTMLElement) {
+  return binarySearch(getFontSize(el), (fontSize: number) => {
+    setFontSize(el, fontSize);
+    return isOverflowing(el);
+  });
+}
+
+function calculateAndApplyFontSize(el: HTMLElement | null | undefined) {
+  if (el) {
+    setFontSize(el, findFontSizeBinary(el));
   }
 }
 
-const useFontSize = (myRef: RefObject<HTMLElement>) => {
+const useFontSize = (ref: RefObject<HTMLElement>) => {
   useEffect(() => {
     const handleResize = () => {
-      if (myRef?.current) {
-        findFontSizeByStep(myRef?.current);
-      }
+      calculateAndApplyFontSize(ref?.current);
     };
 
-    if (myRef.current) {
-      findFontSizeByStep(myRef.current);
-    }
+    handleResize();
 
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [myRef]);
+  }, [ref]);
 };
 
 export default useFontSize;
