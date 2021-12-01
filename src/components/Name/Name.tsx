@@ -1,15 +1,19 @@
 import React from 'react';
 import className from 'utils/className';
 import VerifiedBadgeSvg from 'assets/VerifiedBadge.svg';
+import PadlockSvg from 'assets/Padlock.svg';
 import css from './Name.module.css';
 
 type NameProps = {
     name: string;
     clickableProfileLink?: boolean;
-    verified?: boolean;
+    isVerified?: boolean;
+    isProtected?: boolean;
 };
 
-const Name = ({ name, clickableProfileLink, verified }: NameProps) => (
+const Name = ({
+  name, clickableProfileLink, isVerified, isProtected,
+}: NameProps) => (
   <span
     {...className(
       css.name,
@@ -17,14 +21,20 @@ const Name = ({ name, clickableProfileLink, verified }: NameProps) => (
     )}
   >
     <span>{ name }</span>
-    {verified && (
+    {isVerified && (
       <img
         src={VerifiedBadgeSvg}
         className={css.verifiedBadge}
         alt="verified twitter acount"
       />
     )}
-
+    {isProtected && (
+      <img
+        src={PadlockSvg}
+        className={css.padlock}
+        alt="protected twitter acount"
+      />
+    )}
   </span>
 );
 
