@@ -1,16 +1,20 @@
 import React from 'react';
+import className from 'utils/className';
 import css from './ProfilePicture.module.css';
 
 type ProfilePictureProps = {
-    src: any;
-    alt: string;
+    image: string;
+    clickableProfileLink?: boolean;
 };
 
-const ProfilePicture = ({ src, alt }: ProfilePictureProps) => (
+const ProfilePicture = ({ image, clickableProfileLink }: ProfilePictureProps) => (
   <img
-    src={src}
-    alt={alt}
-    className={css.profilePicture}
+    src={image}
+    alt=""
+    {...className(
+      css.profilePicture,
+      clickableProfileLink && css.clickable,
+    )}
   />
 );
 

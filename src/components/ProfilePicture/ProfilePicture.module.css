@@ -4,3 +4,7 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+.clickable:hover {
+    filter: brightness(0.9);
+}

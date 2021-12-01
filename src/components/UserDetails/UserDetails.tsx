@@ -22,13 +22,13 @@ const UserDetails = ({
     className={css.userDetails}
     rel="noreferrer"
   >
-    <ProfilePicture src={image} alt="" />
+    <ProfilePicture {...({ image, clickableProfileLink })} />
     <Name
       {...({
         name, isVerified, isProtected, clickableProfileLink,
       })}
     />
-    <Username username={username} />
+    <Username {...({ username })} />
   </a>
 );
 
