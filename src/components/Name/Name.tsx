@@ -1,6 +1,6 @@
 import React from 'react';
+import className from 'utils/className';
 import css from './Name.module.css';
-import className from '../../utils/className';
 
 type NameProps = {
     name: string;

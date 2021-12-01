@@ -1,5 +1,5 @@
 import React from 'react';
-import formatTweetTime from '../../utils/formatTweetTime';
+import formatTweetTime from 'utils/formatTweetTime';
 import css from './Details.module.css';
 
 type DetailsProps = {

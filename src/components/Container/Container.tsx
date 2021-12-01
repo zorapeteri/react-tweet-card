@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import useTwitterLogo from '../../hooks/useTwitterLogo';
-import css from './Container.module.css';
+import useTwitterLogo from 'hooks/useTwitterLogo';
+import useFontSize from 'hooks/useFontSize';
+import classNameUtil from 'utils/className';
 import './Container.css';
-import useFontSize from '../../hooks/useFontSize';
-import classNameUtil from '../../utils/className';
+import css from './Container.module.css';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
     children: any;

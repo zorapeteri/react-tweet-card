@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus, no-param-reassign */
 
 import { useEffect, RefObject } from 'react';
-import binarySearch from '../utils/binarySearch';
+import binarySearch from 'utils/binarySearch';
 
 function isOverflowing(el: HTMLElement) {
   return el.clientWidth < el.scrollWidth

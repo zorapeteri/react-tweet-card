@@ -1,7 +1,7 @@
 import React from 'react';
-import svg from '../../assets/TwitterLogo.svg';
+import svg from 'assets/TwitterLogo.svg';
+import className from 'utils/className';
 import css from './TwitterLogo.module.css';
-import className from '../../utils/className';
 
 const TwitterLogo = () => (
   <img
