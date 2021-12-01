@@ -21,7 +21,7 @@ const Name = ({ name, clickableProfileLink, verified }: NameProps) => (
       <img
         src={VerifiedBadgeSvg}
         className={css.verifiedBadge}
-        alt="twitter verified badge"
+        alt="verified twitter acount"
       />
     )}
 
