@@ -8,11 +8,12 @@ type UserDetailsProps = {
     name: string;
     username: string;
     image: any;
+    verified?: boolean;
     clickableProfileLink?: boolean;
 };
 
 const UserDetails = ({
-  name, username, image, clickableProfileLink,
+  name, username, image, verified, clickableProfileLink,
 }: UserDetailsProps) => (
   <a
     href={clickableProfileLink ? `https://twitter.com/${username}` : ''}
@@ -21,7 +22,7 @@ const UserDetails = ({
     rel="noreferrer"
   >
     <ProfilePicture src={image} alt="" />
-    <Name {...({ name, clickableProfileLink })} />
+    <Name {...({ name, clickableProfileLink, verified })} />
     <Username username={username} />
   </a>
 );

@@ -11,6 +11,7 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     name: string,
     username: string,
     image: string,
+    verified?: boolean,
   },
   tweet: string,
   time: Date | string,
