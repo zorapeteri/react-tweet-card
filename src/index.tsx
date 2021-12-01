@@ -27,7 +27,7 @@ const TweetCard = ({
 } : TweetCardProps) => (
   <Container {...({ gradientBackground, transparentBackground, ...rest })}>
     <UserDetails {...({ ...author, clickableProfileLink })} />
-    <TwitterLogo />
+    <TwitterLogo {...({ permalink })} />
     <Tweet text={tweet} />
     <Details {...({ time, source, permalink })} />
   </Container>
