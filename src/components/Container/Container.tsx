@@ -3,6 +3,7 @@ import useTwitterLogo from '../../hooks/useTwitterLogo';
 import css from './Container.module.css';
 import './Container.css';
 import useFontSize from '../../hooks/useFontSize';
+import classNameUtil from '../../utils/className';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
     children: any;
@@ -21,7 +22,13 @@ const Container = ({
   return (
     <div
       ref={containerRef}
-      className={[className, css.container, twitterLogo, gradientBackground && css.gradientBackground, transparentBackground && css.transparentBackground].filter(Boolean).join(' ')}
+      {...classNameUtil(
+        className,
+        css.container,
+        twitterLogo,
+        gradientBackground && css.gradientBackground,
+        transparentBackground && css.transparentBackground,
+      )}
       {...rest}
     >
       {children}

@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Name.module.css';
+import className from '../../utils/className';
 
 type NameProps = {
     name: string;
@@ -7,7 +8,12 @@ type NameProps = {
 };
 
 const Name = ({ name, clickableProfileLink }: NameProps) => (
-  <span className={[css.name, clickableProfileLink && css.clickable].filter(Boolean).join(' ')}>
+  <span
+    {...className(
+      css.name,
+      clickableProfileLink && css.clickable,
+    )}
+  >
     {name}
   </span>
 );
