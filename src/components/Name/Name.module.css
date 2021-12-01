@@ -6,3 +6,7 @@
     align-self: end;
     text-align: start;
 }
+
+.clickable:hover {
+    text-decoration: underline;
+}

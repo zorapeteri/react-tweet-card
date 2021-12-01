@@ -16,15 +16,17 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   time: Date | string,
   source: string,
   permalink?: string,
+  clickableProfileLink?: boolean,
   gradientBackground?: boolean,
   transparentBackground?: boolean,
 }
 
 const TweetCard = ({
-  author, tweet, time, source, permalink, gradientBackground, transparentBackground, ...rest
+  author, tweet, time, source, permalink, clickableProfileLink,
+  gradientBackground, transparentBackground, ...rest
 } : TweetCardProps) => (
   <Container {...({ gradientBackground, transparentBackground, ...rest })}>
-    <UserDetails {...author} />
+    <UserDetails {...({ ...author, clickableProfileLink })} />
     <TwitterLogo />
     <Tweet text={tweet} />
     <Details {...({ time, source, permalink })} />

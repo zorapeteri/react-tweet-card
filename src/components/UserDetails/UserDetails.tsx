@@ -8,14 +8,22 @@ type UserDetailsProps = {
     name: string;
     username: string;
     image: any;
+    clickableProfileLink?: boolean;
 };
 
-const UserDetails = ({ name, username, image }: UserDetailsProps) => (
-  <div className={css.userDetails}>
+const UserDetails = ({
+  name, username, image, clickableProfileLink,
+}: UserDetailsProps) => (
+  <a
+    href={clickableProfileLink ? `https://twitter.com/${username}` : ''}
+    target="_blank"
+    className={css.userDetails}
+    rel="noreferrer"
+  >
     <ProfilePicture src={image} alt="" />
-    <Name name={name} />
+    <Name {...({ name, clickableProfileLink })} />
     <Username username={username} />
-  </div>
+  </a>
 );
 
 export default UserDetails;

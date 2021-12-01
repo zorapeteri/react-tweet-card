@@ -6,6 +6,8 @@
     column-gap: 8px;
     row-gap: 2px;
     place-items: center;
+    color: inherit;
+    text-decoration: none;
 }
 
 .userDetails > img {
