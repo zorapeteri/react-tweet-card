@@ -3,17 +3,17 @@ import className from 'utils/className';
 import css from './Tweet.module.css';
 
 type TweetProps = {
-    text: string;
+    tweet: string;
 }
 
-const Tweet = ({ text }: TweetProps) => (
+const Tweet = ({ tweet }: TweetProps) => (
   <p
     {...className(
       css.tweet,
-      text.length > 180 && css.longTweet,
+      tweet.length > 180 && css.longTweet,
     )}
   >
-    {text}
+    {tweet}
   </p>
 );
 
