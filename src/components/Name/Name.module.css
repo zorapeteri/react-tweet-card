@@ -24,4 +24,5 @@
     height: 1em;
     width: 1em;
     margin-left: 0.2em;
+    fill: var(--tweet-card-primary);
 }

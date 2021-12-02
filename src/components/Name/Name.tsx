@@ -1,8 +1,8 @@
 import React from 'react';
 import className from 'utils/className';
 import VerifiedBadgeSvg from 'assets/VerifiedBadge.svg';
-import PadlockSvg from 'assets/Padlock.svg';
 import css from './Name.module.css';
+import Padlock from './Padlock';
 
 type NameProps = {
     name: string;
@@ -29,11 +29,7 @@ const Name = ({
       />
     )}
     {isProtected && (
-      <img
-        src={PadlockSvg}
-        className={css.padlock}
-        alt="protected twitter acount"
-      />
+      <Padlock className={css.padlock} />
     )}
   </span>
 );
