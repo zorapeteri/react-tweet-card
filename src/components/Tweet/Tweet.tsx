@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
-import useLinksAndUsernames from 'utils/useLinksAndUsernames';
+import useLinksAndUsernames from 'hooks/useLinksAndUsernames';
 import css from './Tweet.module.css';
 
 type TweetProps = {
