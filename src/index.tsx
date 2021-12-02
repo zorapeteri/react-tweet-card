@@ -4,8 +4,8 @@ import Details from 'components/Details';
 import Tweet from 'components/Tweet';
 import Container from 'components/Container';
 import TwitterLogo from 'components/TwitterLogo';
+import { ThemeOption, TweetCardColors } from './themes';
 import './index.css';
-import { ThemeOption, TweetCardColors } from 'themes';
 
 type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
