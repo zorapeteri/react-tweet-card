@@ -5,6 +5,7 @@ import Tweet from 'components/Tweet';
 import Container from 'components/Container';
 import TwitterLogo from 'components/TwitterLogo';
 import './index.css';
+import { ThemeOption, TweetCardColors } from 'themes';
 
 type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
@@ -13,21 +14,20 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     image: string,
     isVerified?: boolean,
     isProtected?: boolean,
-  },
-  tweet: string,
-  time: Date | string,
-  source: string,
-  permalink?: string,
-  clickableProfileLink?: boolean,
-  gradientBackground?: boolean,
-  transparentBackground?: boolean,
+  };
+  tweet: string;
+  time: Date | string;
+  source: string;
+  permalink?: string;
+  clickableProfileLink?: boolean;
+  theme?: ThemeOption;
+  colors?: TweetCardColors;
 }
 
 const TweetCard = ({
-  author, tweet, time, source, permalink, clickableProfileLink,
-  gradientBackground, transparentBackground, ...rest
+  author, tweet, time, source, permalink, clickableProfileLink, ...rest
 } : TweetCardProps) => (
-  <Container {...({ gradientBackground, transparentBackground, ...rest })}>
+  <Container {...({ ...rest })}>
     <UserDetails {...({ ...author, clickableProfileLink })} />
     <TwitterLogo {...({ permalink })} />
     <Tweet {...({ tweet })} />

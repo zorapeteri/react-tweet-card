@@ -7,6 +7,7 @@
     text-align: start;
     display: flex;
     align-items: center;
+    color: var(--tweet-card-primary);
 }
 
 .clickable:hover {

@@ -3,17 +3,23 @@ import useTwitterLogo from 'hooks/useTwitterLogo';
 import useFontSize from 'hooks/useFontSize';
 import classNameUtil from 'utils/className';
 import './Container.css';
+import getCSSVariables from 'utils/getCSSVariables';
+import themes, { ThemeOption, TweetCardColors } from 'themes';
 import css from './Container.module.css';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
     children: any;
     className?: string,
-    gradientBackground?: boolean;
-    transparentBackground?: boolean;
+    theme?: ThemeOption;
+    colors?: TweetCardColors;
 }
 
 const Container = ({
-  children, className, gradientBackground, transparentBackground, ...rest
+  children,
+  className,
+  theme = 'light',
+  colors = {},
+  ...rest
 } : ContainerProps) => {
   const containerRef = useRef(null);
   const twitterLogo = useTwitterLogo(containerRef);
@@ -26,10 +32,9 @@ const Container = ({
         className,
         css.container,
         twitterLogo,
-        gradientBackground && css.gradientBackground,
-        transparentBackground && css.transparentBackground,
       )}
       {...rest}
+      style={{ ...getCSSVariables(colors, themes[theme]), ...rest.style }}
     >
       {children}
     </div>

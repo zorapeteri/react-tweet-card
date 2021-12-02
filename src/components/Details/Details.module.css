@@ -6,7 +6,7 @@
     font-size: 125%;
     letter-spacing: -0.03em;
     text-align: start;
-    color: #8E8E8E;
+    color: var(--tweet-card-secondary);
 }
 
 .details a {
@@ -19,5 +19,5 @@
 }
 
 .source {
-    color: #2AA3EF;
+    color: var(--tweet-card-accent);
 }

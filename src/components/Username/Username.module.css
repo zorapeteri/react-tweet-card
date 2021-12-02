@@ -2,6 +2,6 @@
     font-size: 100%;
     font-family: Inter, sans-serif;
     font-weight: 400;
-    color: #8E8E8E;
+    color: var(--tweet-card-secondary);
     letter-spacing: -0.03em;
 }
