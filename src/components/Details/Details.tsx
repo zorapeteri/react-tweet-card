@@ -1,5 +1,7 @@
 import React from 'react';
+import className from 'utils/className';
 import formatTweetTime from 'utils/formatTweetTime';
+import globalClassName from 'utils/globalClassName';
 import css from './Details.module.css';
 
 type DetailsProps = {
@@ -14,12 +16,28 @@ function Details({ time, source, permalink } : DetailsProps) {
   return (
     <p className={css.details}>
       {permalink ? (
-        <a href={permalink} target="_blank" rel="noreferrer">{formattedTime}</a>
+        <a
+          href={permalink}
+          target="_blank"
+          rel="noreferrer"
+          className={globalClassName('time')}
+        >
+          {formattedTime}
+
+        </a>
       ) : (
-        <span>{formattedTime}</span>
+        <span className={globalClassName('time')}>{formattedTime}</span>
       )}
       {' · '}
-      <span className={css.source}>{source}</span>
+      <span
+        {...className(
+          globalClassName('source'),
+          css.source,
+        )}
+      >
+        {source}
+
+      </span>
     </p>
   );
 }

@@ -5,6 +5,7 @@ import classNameUtil from 'utils/className';
 import './Container.css';
 import getCSSVariables from 'utils/getCSSVariables';
 import themes, { ThemeOption, TweetCardColors } from 'themes';
+import globalClassName from 'utils/globalClassName';
 import css from './Container.module.css';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -29,6 +30,7 @@ const Container = ({
     <div
       ref={containerRef}
       {...classNameUtil(
+        globalClassName('container'),
         className,
         css.container,
         twitterLogo,

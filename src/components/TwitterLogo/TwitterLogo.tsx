@@ -1,6 +1,7 @@
 import React from 'react';
 import svg from 'assets/TwitterLogo.svg';
 import className from 'utils/className';
+import globalClassName from 'utils/globalClassName';
 import css from './TwitterLogo.module.css';
 
 type TwitterLogoProps = {
@@ -17,7 +18,7 @@ const TwitterLogo = ({ permalink }: TwitterLogoProps) => (
     <img
       src={svg}
       {...className(
-        'react-tweet-card__twitter-logo',
+        globalClassName('twitter-logo'),
         css.twitterLogo,
       )}
       alt="twitter logo"

@@ -1,6 +1,7 @@
 import React from 'react';
 import className from 'utils/className';
 import VerifiedBadgeSvg from 'assets/VerifiedBadge.svg';
+import globalClassName from 'utils/globalClassName';
 import css from './Name.module.css';
 import Padlock from './Padlock';
 
@@ -16,6 +17,7 @@ const Name = ({
 }: NameProps) => (
   <span
     {...className(
+      globalClassName('author-name'),
       css.name,
       clickableProfileLink && css.clickable,
     )}
@@ -24,12 +26,20 @@ const Name = ({
     {isVerified && (
       <img
         src={VerifiedBadgeSvg}
-        className={css.verifiedBadge}
         alt="verified twitter acount"
+        {...className(
+          globalClassName('verified-badge'),
+          css.verifiedBadge,
+        )}
       />
     )}
     {isProtected && (
-      <Padlock className={css.padlock} />
+      <Padlock
+        {...className(
+          globalClassName('protected-icon'),
+          css.padlock,
+        )}
+      />
     )}
   </span>
 );
