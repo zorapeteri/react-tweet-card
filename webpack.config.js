@@ -28,7 +28,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'lib'),
     library: {
-      name: 'tweet-card',
+      name: 'react-tweet-card',
       type: 'umd',
     },
   },
