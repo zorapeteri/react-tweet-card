@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo, HTMLAttributes } from 'react';
 import useTwitterLogo from 'hooks/useTwitterLogo';
 import useFontSize from 'hooks/useFontSize';
 import classNameUtil from 'utils/className';
@@ -10,7 +10,7 @@ import useGradientBackground from 'hooks/useGradientBackground';
 import useBlurredBackground from 'hooks/useBlurredBackground';
 import css from './Container.module.css';
 
-type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
+type ContainerProps = HTMLAttributes<HTMLDivElement> & {
     children: any;
     className?: string,
     theme?: ThemeOption;
@@ -31,8 +31,16 @@ const Container = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const twitterLogo = useTwitterLogo(containerRef);
   useFontSize(containerRef);
-  const gradientStyle = useGradientBackground(gradientBackground, colors, themes[theme]);
-  const blurredStyle = useBlurredBackground(blurredBackground, colors, themes[theme]);
+
+  const gradientStyle = useMemo(
+    () => useGradientBackground(gradientBackground, colors, themes[theme]),
+    [gradientBackground, theme, colors.background],
+  );
+
+  const blurredStyle = useMemo(
+    () => useBlurredBackground(blurredBackground, colors, themes[theme]),
+    [blurredBackground, theme, colors.background],
+  );
 
   return (
     <div
