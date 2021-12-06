@@ -6,6 +6,7 @@ const useGradientBackground = (
   colors: TweetCardColors | undefined,
   theme: TweetCardTheme,
 ) => {
+  console.log('useGradientBackground');
   if (gradientBackground) {
     const backgroundColor = colors?.background || theme.background;
     const rgb = getRGB(backgroundColor);

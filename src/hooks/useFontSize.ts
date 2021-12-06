@@ -1,7 +1,8 @@
 /* eslint-disable no-plusplus, no-param-reassign */
 
-import { useEffect, RefObject } from 'react';
+import { RefObject } from 'react';
 import binarySearch from 'utils/binarySearch';
+import useResizeObserver from 'use-resize-observer';
 
 function isOverflowing(el: HTMLElement) {
   return el.clientWidth < el.scrollWidth
@@ -29,20 +30,16 @@ function calculateAndApplyFontSize(el: HTMLElement | null | undefined) {
   }
 }
 
-const useFontSize = (ref: RefObject<HTMLElement>) => {
-  useEffect(() => {
-    const handleResize = () => {
-      calculateAndApplyFontSize(ref?.current);
-    };
+const useFontSize = (ref: RefObject<HTMLDivElement>) => {
+  const handleResize = () => {
+    calculateAndApplyFontSize(ref?.current);
+  };
 
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [ref]);
+  useResizeObserver<HTMLDivElement>({
+    ref,
+    box: 'border-box',
+    onResize: handleResize,
+  });
 };
 
 export default useFontSize;

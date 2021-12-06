@@ -28,7 +28,7 @@ const Container = ({
   blurredBackground,
   ...rest
 } : ContainerProps) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const twitterLogo = useTwitterLogo(containerRef);
   useFontSize(containerRef);
   const gradientStyle = useGradientBackground(gradientBackground, colors, themes[theme]);
