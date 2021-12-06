@@ -22,6 +22,8 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   clickableProfileLink?: boolean;
   theme?: ThemeOption;
   colors?: TweetCardColors;
+  gradientBackground?: boolean;
+  blurredBackground?: boolean;
 }
 
 const TweetCard = ({

@@ -6,6 +6,8 @@ import './Container.css';
 import getCSSVariables from 'utils/getCSSVariables';
 import themes, { ThemeOption, TweetCardColors } from 'themes';
 import globalClassName from 'utils/globalClassName';
+import useGradientBackground from 'hooks/useGradientBackground';
+import useBlurredBackground from 'hooks/useBlurredBackground';
 import css from './Container.module.css';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -13,6 +15,8 @@ type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
     className?: string,
     theme?: ThemeOption;
     colors?: TweetCardColors;
+    gradientBackground?: boolean;
+    blurredBackground?: boolean;
 }
 
 const Container = ({
@@ -20,11 +24,15 @@ const Container = ({
   className,
   theme = 'light',
   colors = {},
+  gradientBackground,
+  blurredBackground,
   ...rest
 } : ContainerProps) => {
   const containerRef = useRef(null);
   const twitterLogo = useTwitterLogo(containerRef);
   useFontSize(containerRef);
+  const gradientStyle = useGradientBackground(gradientBackground, colors, themes[theme]);
+  const blurredStyle = useBlurredBackground(blurredBackground, colors, themes[theme]);
 
   return (
     <div
@@ -36,7 +44,12 @@ const Container = ({
         twitterLogo,
       )}
       {...rest}
-      style={{ ...getCSSVariables(colors, themes[theme]), ...rest.style }}
+      style={{
+        ...getCSSVariables(colors, themes[theme]),
+        ...gradientStyle,
+        ...blurredStyle,
+        ...rest.style,
+      }}
     >
       {children}
     </div>
