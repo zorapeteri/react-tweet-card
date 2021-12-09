@@ -24,6 +24,7 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   colors?: TweetCardColors;
   gradientBackground?: boolean;
   blurredBackground?: boolean;
+  fitInsideContainer?: boolean;
 }
 
 const TweetCard = ({

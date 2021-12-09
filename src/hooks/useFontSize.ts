@@ -9,6 +9,17 @@ function isOverflowing(el: HTMLElement) {
         || el.clientHeight < el.scrollHeight;
 }
 
+function canOverflow(el: HTMLElement) {
+  if (isOverflowing(el)) {
+    return true;
+  }
+  const initialFontSize = el.style.fontSize;
+  el.style.fontSize = '100000px';
+  const storedResult = isOverflowing(el);
+  el.style.fontSize = initialFontSize;
+  return storedResult;
+}
+
 function setFontSize(el: HTMLElement, fontSize: number) {
   el.style.fontSize = `${fontSize}px`;
 }
@@ -30,15 +41,17 @@ function calculateAndApplyFontSize(el: HTMLElement | null | undefined) {
   }
 }
 
-const useFontSize = (ref: RefObject<HTMLDivElement>) => {
+const useFontSize = (fitInsideContainer: boolean, ref: RefObject<HTMLDivElement>) => {
   const handleResize = () => {
-    calculateAndApplyFontSize(ref?.current);
+    if (ref?.current && canOverflow(ref?.current)) {
+      calculateAndApplyFontSize(ref?.current);
+    }
   };
 
   useResizeObserver<HTMLDivElement>({
-    ref,
+    ref: fitInsideContainer ? ref : undefined,
     box: 'border-box',
-    onResize: handleResize,
+    onResize: fitInsideContainer ? handleResize : undefined,
   });
 };
 

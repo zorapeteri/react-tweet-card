@@ -17,6 +17,7 @@ type ContainerProps = HTMLAttributes<HTMLDivElement> & {
     colors?: TweetCardColors;
     gradientBackground?: boolean;
     blurredBackground?: boolean;
+    fitInsideContainer?: boolean;
 }
 
 const Container = ({
@@ -26,11 +27,12 @@ const Container = ({
   colors = {},
   gradientBackground,
   blurredBackground,
+  fitInsideContainer = false,
   ...rest
 } : ContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const twitterLogo = useTwitterLogo(containerRef);
-  useFontSize(containerRef);
+  useFontSize(fitInsideContainer, containerRef);
 
   const gradientStyle = useMemo(
     () => useGradientBackground(gradientBackground, colors, themes[theme]),
@@ -47,6 +49,7 @@ const Container = ({
       ref={containerRef}
       {...classNameUtil(
         globalClassName('container'),
+        fitInsideContainer && css.fitInsideContainer,
         className,
         css.container,
         twitterLogo,
