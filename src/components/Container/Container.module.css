@@ -9,6 +9,7 @@
     padding: 2em;
     border-radius: 1.4em;
     row-gap: 1.5em;
+    width: fit-content;
 }
 
 .fitInsideContainer {
