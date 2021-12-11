@@ -31,6 +31,7 @@ module.exports = {
       name: 'react-tweet-card',
       type: 'umd',
     },
+    globalObject: 'this',
   },
   externals: [
     {
