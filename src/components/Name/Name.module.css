@@ -4,6 +4,7 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     align-self: end;
+    justify-self: start;
     text-align: start;
     display: flex;
     align-items: center;
