@@ -1,0 +1,168 @@
+---
+name: Props
+---
+
+import TweetCard from './TweetCard'
+import { OutsideContainer, ParentContainer } from './components/DemoContainers'
+import { Playground } from 'docz'
+
+# Props
+
+<table style={{ fontSize: '14px' }}>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default value</th>
+            <th>Required/Optional</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="/intro#tweet-author-options">author</a></td>
+            <td>Information about the author user of the tweet</td>
+            <td>{`{ name, username, image, isVerified?, isProtected? }`}</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- name</td>
+            <td>Name of the author</td>
+            <td>string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- username</td>
+            <td>Twitter handle of the author</td>
+            <td>string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- image</td>
+            <td>URL to the profile picture of the author</td>
+            <td>string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- isVerified</td>
+            <td>Indicates whether the author is verified</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- isProtected</td>
+            <td>Indicates whether the author's account is protected/private</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>tweet</td>
+            <td>The text of the tweet itself</td>
+            <td>string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>time</td>
+            <td>Time of tweeting. If passed in as a Date object, it will be formatted as it is on Twitter</td>
+            <td>Date | string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>source</td>
+            <td>The source application for the tweet (e.g. "Twitter for iPhone")</td>
+            <td>string</td>
+            <td></td>
+            <td>Required</td>
+        </tr>
+        <tr>
+            <td>permalink</td>
+            <td>The URL for the tweet (or anything, it's up to you). Clicking the twitter logo or the time of tweeting on the card will take you to this URL.</td>
+            <td>string</td>
+            <td></td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>clickableProfileLink</td>
+            <td>Creates a clickable visual effect on the name and profile picture of the author. If turned on, clicking these elements will open the user's profile on Twitter.</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a href="/styling#themes">theme</a></td>
+            <td>The theme setting for the card</td>
+            <td>"light" | "dim" | "dark"</td>
+            <td>"light"</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a href="/styling#colors">colors</a></td>
+            <td>Gives you the option to override the colors used in the card</td>
+            <td>{`{ primary, secondary, accent, background }`}</td>
+            <td>{`{}`}</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a href="/styling#gradient-background">gradientBackground</a></td>
+            <td>Sets the card's background to gradient</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a href="/styling#blurred-background">blurredBackground</a></td>
+            <td>Sets the card's background to blurred</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>fitInsideContainer</td>
+            <td>Scales the contents of the card to perfectly fit inside its parent container. Only works if the element is capable of overflowing on the page.</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+    </tbody>
+</table>
+
+Try them out on this playground:
+
+<Playground>
+    <OutsideContainer>
+        <ParentContainer>
+            <TweetCard
+                author={{ 
+                    name: 'dan mentos', 
+                    username: 'DanMentos', 
+                    image: 'https://pbs.twimg.com/profile_images/548378022768701441/2zz0Vk61_400x400.png',
+                    isVerified: false,
+                    isProtected: false
+                }}
+                tweet={
+                    `[introducing girlfriend to my family]
+                    me: this is my girlfriend janine
+                    janine: hi
+                    wife: what the fuck`
+                }
+                time={new Date(2016, 7, 11, 6, 14)} // try a string instead!
+                source="TweetDeck"
+                permalink="https://twitter.com/DanMentos/status/763589479055495168"
+                theme="light"
+                colors={{}}
+                gradientBackground={false}
+                blurredBackground={false}
+                clickableProfileLink={false}
+                fitInsideContainer={false}
+            />
+        </ParentContainer>
+    </OutsideContainer>
+</Playground>

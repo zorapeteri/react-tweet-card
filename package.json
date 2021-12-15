@@ -1,0 +1,26 @@
+{
+  "name": "react-tweet-card",
+  "private": true,
+  "scripts": {
+    "start": "docz dev",
+    "build": "docz build",
+    "predeploy": "docz build",
+    "deploy": "gh-pages -d docz-build"
+  },
+  "dependencies": {
+    "docz": "^2.3.1",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-tweet-card": "0.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.12",
+    "@types/react": "17.0.37",
+    "eslint": "8.4.1",
+    "eslint-config-next": "12.0.7",
+    "gh-pages": "^3.2.3",
+    "typescript": "4.5.3"
+  },
+  "homepage": "https://zorapeteri.github.io/react-tweet-card"
+}

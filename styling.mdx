@@ -1,0 +1,149 @@
+---
+name: Styling
+---
+
+import TweetCard from './TweetCard'
+import Container from './components/Container'
+import { Playground } from 'docz'
+import { Code } from 'gatsby-theme-docz/src/components/Code'
+
+export const author = { 
+    name: 'olive 🍓🐇', 
+    username: 'milkandmorphine', 
+    image: 'https://pbs.twimg.com/profile_images/1407804739094515713/_9SvjNSI_400x400.jpg' 
+} 
+export const tweet = `hate restaurants that make u say shit like yeah can i have the big wet daddy burger please thanks`
+export const time = new Date(2021, 5, 23, 13, 51);
+export const source = "Twitter for iPhone"
+export const permalink = "https://twitter.com/milkandmorphine/status/1407667588189065217";
+export const fitInsideContainer = true;
+
+# Styling
+
+## Themes 
+
+The `theme` prop can be set to `light`, `dim`, or `dark`. Try it out!
+
+<Playground showPlaygroundEdit={false}>
+    <Container>
+        <TweetCard 
+            {...({ author, tweet, time, source, permalink, fitInsideContainer })} 
+            theme="dim" // try "light" and "dark"
+        />
+    </Container>
+</Playground>
+
+## Colors
+
+The colors of the pre-defined themes can be extended.
+
+<table>
+    <thead>
+        <tr>
+            <th>Color setting</th>
+            <th>Used</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>primary</td>
+            <td>Author name, tweet text</td>
+        </tr>
+        <tr>
+            <td>secondary</td>
+            <td>Author username, time</td>
+        </tr>
+        <tr>
+            <td>accent</td>
+            <td>Source, mentions, links</td>
+        </tr>
+        <tr>
+            <td>background</td>
+            <td>Background color of the container</td>
+        </tr>
+    </tbody>
+</table>
+
+<Playground showPlaygroundEdit={false}>
+    <Container>
+        <TweetCard {...({ author, tweet, time, source, permalink, fitInsideContainer })} 
+            colors={{
+                primary: '#ffffff',
+                secondary: '#add8e6',
+                accent: '#ffffd8',
+                background: '#e5e4ff'
+            }}
+        />
+    </Container>
+</Playground>
+
+## Gradient background
+
+Passing in the `gradientBackground` prop to the component will create a gradient background to the container based on the background color of the active theme.
+
+<Playground showPlaygroundEdit={false}>
+    <Container>
+        <TweetCard {...({ author, tweet, time, source, permalink, fitInsideContainer })} 
+            theme="light" // try "dim" and "dark"
+            gradientBackground
+        />
+    </Container>
+</Playground>
+
+## Blurred background
+
+Passing in the `blurredBackground` prop to the component will create a blurred effect on the background of the container.
+
+<Playground showPlaygroundEdit={false}>
+    <Container>
+        <TweetCard {...({ author, tweet, time, source, permalink, fitInsideContainer })} 
+            theme="light" // try "dim" and "dark"
+            blurredBackground
+        />
+    </Container>
+</Playground>
+
+## Accessing the DOM node
+
+Any prop that's a valid HTML5 attribute can be passed in to the component, and its main div will get those attributes, including `className` and `style`. This way the component can easily be used with libraries like styled components.
+
+<Playground showPlaygroundEdit={false}>
+    <Container>
+        <TweetCard {...({ author, tweet, time, source, permalink, fitInsideContainer })} 
+            style={{
+                transform: 'rotate(5deg)'
+            }}
+        />
+    </Container>
+</Playground>
+
+## Classnames
+
+The component intentionally exposes classnames on its elements for you to control from your own stylesheet. All classnames start with the `react-tweet-card` prefix.
+
+<details style={{ fontSize: '14px' }}>
+    <summary style="cursor: pointer; padding: 10px; border: 1px solid currentColor; border-radius: 4px; width: fit-content; margin: 10px 0;">
+        Exposed classnames
+    </summary>
+    <ul style="margin-left: 50px">
+        <li>react-tweet-card__container</li>
+         <li>react-tweet-card__author-name</li>
+        <li>react-tweet-card__author-username</li>
+        <li>react-tweet-card__author-image</li>
+        <li>react-tweet-card__verified-badge</li>
+        <li>react-tweet-card__protected-icon</li>
+        <li>react-tweet-card__time</li>
+        <li>react-tweet-card__source</li>
+        <li>react-tweet-card__tweet</li>
+        <li>react-tweet-card__twitter-logo</li>
+    </ul>
+</details>
+
+<Code className="css">
+    {
+`/* example */
+    
+.react-tweet-card__username {
+    display: none;
+}`}
+</Code>
