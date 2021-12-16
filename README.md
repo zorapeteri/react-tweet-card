@@ -22,6 +22,7 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 - [X] Support for @mentions in tweet
 - [X] Support for links in tweet
 - [ ] Support for hashtags in tweet
+- [ ] Display number of replies, retweets and likes
 
 ## Design credits
 
