@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
-import useLinksAndUsernames from 'hooks/useLinksAndUsernames';
+import useLinksUsernamesHashtags from 'hooks/useLinksUsernamesHashtags';
 import css from './Tweet.module.css';
 
 type TweetProps = {
@@ -10,7 +10,7 @@ type TweetProps = {
 
 const Tweet = ({ tweet }: TweetProps) => {
   const ref = useRef(null);
-  useLinksAndUsernames(ref);
+  useLinksUsernamesHashtags(ref);
 
   return (
     <p

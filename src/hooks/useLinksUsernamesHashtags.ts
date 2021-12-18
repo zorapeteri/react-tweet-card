@@ -29,6 +29,11 @@ function findLinks(str: string) {
   return getGroups(str, regex, 3);
 }
 
+function findHashtags(str: string) {
+  const regex = /([\s\W]|^)#(\w+)/gm;
+  return getGroups(str, regex, 2);
+}
+
 function replaceLinks(str: string) {
   let finalStr = str;
   const links = findLinks(str);
@@ -53,16 +58,28 @@ function replaceUsernames(str: string) {
   return finalStr;
 }
 
-function replaceLinksAndUsernames(el: HTMLElement) {
-  el.innerHTML = replaceUsernames(replaceLinks(el.textContent || ''));
+function replaceHashtags(str: string) {
+  let finalStr = str;
+  const hashtags = findHashtags(str);
+  hashtags.forEach((hashtag) => {
+    finalStr = finalStr.replace(
+      `#${hashtag}`,
+      `<a target="_blank" class="react-tweet-card--hashtag-in-tweet" href="https://twitter.com/hashtag/${hashtag}">#${hashtag}</a>`,
+    );
+  });
+  return finalStr;
 }
 
-const useLinksAndUsernames = (ref: React.RefObject<HTMLElement>) => {
+function replaceLinksUsernamesHashtags(el: HTMLElement) {
+  el.innerHTML = replaceHashtags(replaceUsernames(replaceLinks(el.textContent || '')));
+}
+
+const useLinksUsernamesHashtags = (ref: React.RefObject<HTMLElement>) => {
   useEffect(() => {
     if (ref?.current) {
-      replaceLinksAndUsernames(ref.current);
+      replaceLinksUsernamesHashtags(ref.current);
     }
   }, [ref]);
 };
 
-export default useLinksAndUsernames;
+export default useLinksUsernamesHashtags;
