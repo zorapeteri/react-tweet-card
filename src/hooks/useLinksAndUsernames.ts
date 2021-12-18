@@ -54,7 +54,7 @@ function replaceUsernames(str: string) {
 }
 
 function replaceLinksAndUsernames(el: HTMLElement) {
-  el.innerHTML = replaceUsernames(replaceLinks(el.innerText));
+  el.innerHTML = replaceUsernames(replaceLinks(el.textContent || ''));
 }
 
 const useLinksAndUsernames = (ref: React.RefObject<HTMLElement>) => {
