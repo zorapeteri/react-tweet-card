@@ -24,6 +24,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/jsx-pascal-case': 'off',
     'no-restricted-exports': 'off',
     'import/extensions': [
       'error',

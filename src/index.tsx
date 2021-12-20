@@ -4,6 +4,7 @@ import Details from 'components/Details';
 import Tweet from 'components/Tweet';
 import Container from 'components/Container';
 import TwitterLogo from 'components/TwitterLogo';
+import Engagement from 'components/Engagement';
 import { ThemeOption, TweetCardColors } from './themes';
 import './index.css';
 
@@ -15,6 +16,11 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     isVerified?: boolean,
     isProtected?: boolean,
   };
+  engagement?: {
+    replies?: number;
+    retweets?: number;
+    likes?: number;
+  };
   tweet: string;
   time: Date | string;
   source: string;
@@ -25,16 +31,30 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   gradientBackground?: boolean;
   blurredBackground?: boolean;
   fitInsideContainer?: boolean;
+  showDetails?: boolean;
+  showEngagement?: boolean;
+  emojis?: boolean;
 }
 
 const TweetCard = ({
-  author, tweet, time, source, permalink, clickableProfileLink, ...rest
+  author,
+  tweet,
+  time,
+  source,
+  permalink,
+  engagement,
+  clickableProfileLink,
+  showDetails = true,
+  showEngagement = true,
+  emojis,
+  ...rest
 } : TweetCardProps) => (
   <Container {...({ ...rest })}>
     <UserDetails {...({ ...author, clickableProfileLink })} />
     <TwitterLogo {...({ permalink })} />
     <Tweet {...({ tweet })} />
-    <Details {...({ time, source, permalink })} />
+    {showDetails && <Details {...({ time, source, permalink })} />}
+    {showEngagement && <Engagement {...({ ...engagement, emojis })} />}
   </Container>
 );
 
