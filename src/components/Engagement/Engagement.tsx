@@ -5,12 +5,6 @@ import css from './Engagement.module.css';
 import TwitterIcon from './Twitter';
 import Emoji from './Emoji';
 
-export type EngagementIcons = {
-    replies: any;
-    retweets: any;
-    likes: any;
-}
-
 type EngagementProps = {
     replies?: number;
     retweets?: number;
