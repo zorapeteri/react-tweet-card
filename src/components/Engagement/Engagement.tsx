@@ -34,15 +34,15 @@ function Engagement({
         globalClassName('engagement-container'),
       )}
     >
-      <span>
+      <span role="img" aria-label={`${replies} ${replies === 1 ? 'reply' : 'replies'}`}>
         <icons.replies />
         {replies}
       </span>
-      <span>
+      <span role="img" aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}>
         <icons.retweets />
         {retweets}
       </span>
-      <span>
+      <span role="img" aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}>
         <icons.likes />
         {likes}
       </span>

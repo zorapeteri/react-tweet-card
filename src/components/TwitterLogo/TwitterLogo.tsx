@@ -13,7 +13,8 @@ const TwitterLogo = ({ permalink }: TwitterLogoProps) => (
     href={permalink || ''}
     target="_blank"
     rel="noreferrer"
-    title="Open on Twitter"
+    aria-hidden={!permalink}
+    aria-label={permalink && 'View tweet on twitter.com'}
   >
     <img
       src={svg}
@@ -21,7 +22,7 @@ const TwitterLogo = ({ permalink }: TwitterLogoProps) => (
         globalClassName('twitter-logo'),
         css.twitterLogo,
       )}
-      alt="twitter logo"
+      alt=""
     />
   </a>
 

@@ -21,6 +21,14 @@ const UserDetails = ({
     target="_blank"
     className={css.userDetails}
     rel="noreferrer"
+    aria-label={
+      [
+        `Tweet by Twitter user ${name} (@${username})`,
+        isVerified && 'This twitter account is verified',
+        isProtected && 'This twitter account\'s tweets are protected',
+        clickableProfileLink && 'Click this link to open their profile on twitter.com',
+      ].filter(Boolean).join('. ')
+    }
   >
     <ProfilePicture {...({ image, clickableProfileLink })} />
     <Name

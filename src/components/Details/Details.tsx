@@ -21,14 +21,17 @@ function Details({ time, source, permalink } : DetailsProps) {
           target="_blank"
           rel="noreferrer"
           className={globalClassName('time')}
+          aria-label={
+            [`Posted at ${time instanceof Date ? formatTweetTime(time, true) : time}`,
+              permalink && 'Click this link to view this tweet on twitter.com'].filter(Boolean).join('. ')
+          }
         >
           {formattedTime}
-
         </a>
       ) : (
         <span className={globalClassName('time')}>{formattedTime}</span>
       )}
-      {' · '}
+      <span aria-hidden="true"> · </span>
       <span
         {...className(
           globalClassName('source'),
@@ -36,7 +39,6 @@ function Details({ time, source, permalink } : DetailsProps) {
         )}
       >
         {source}
-
       </span>
     </p>
   );
