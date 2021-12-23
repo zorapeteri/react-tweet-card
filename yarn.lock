@@ -12427,10 +12427,10 @@ react-simple-code-editor@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.11.0.tgz#bb57c7c29b570f2ab229872599eac184f5bc673c"
   integrity sha512-xGfX7wAzspl113ocfKQAR8lWPhavGWHL3xSzNLeseDRHysT+jzRBi/ExdUqevSMos+7ZtdfeuBOXtgk9HTwsrw==
 
-react-tweet-card@0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/react-tweet-card/-/react-tweet-card-0.0.9.tgz#c738b90b1c29ade79af86bbf21151c8debab33b5"
-  integrity sha512-zBxJ7BvIQrObkmku6FCZccJa8OS0J0rRP3Xw74wD4qCu5MKaZjohT4DhUXzEty4llE9q2sNjz03rWStYVbEifw==
+react-tweet-card@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-tweet-card/-/react-tweet-card-0.1.1.tgz#84e582a551c6cfe556a2529a822215b5924b9369"
+  integrity sha512-xPi51oSO9P2j7rEbCj/u8EmkwnBhytOVdTwevOqqe+nQtkE8yEQZQYlE79dpmXqA0SXrlV/6I6Kri3vReUuTGA==
 
 react@17.0.2:
   version "17.0.2"
