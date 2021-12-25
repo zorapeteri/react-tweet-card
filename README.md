@@ -13,7 +13,7 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 ## Features
 
 - [X] Responsive component
-- [X] Container scales to fit inside any container
+- [X] Component scales to fit inside any container
 - [X] Light, dim and dark themes
 - [X] Gradient and blurred container styles
 - [X] styled-components and emotion support
@@ -21,8 +21,8 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 - [X] Support for verified and protected Twitter accounts
 - [X] Support for @mentions in tweet
 - [X] Support for links in tweet
-- [ ] Support for hashtags in tweet
-- [ ] Display number of replies, retweets and likes
+- [X] Support for hashtags in tweet
+- [X] Display number of replies, retweets and likes
 
 ## Design credits
 
