@@ -7,9 +7,9 @@ const tweet = `[introducing girlfriend to my family]
 me: this is my girlfriend janine
 janine: hi
 wife: what the fuck`
-const time = new Date(2016, 7, 11, 6, 14);
+const time = new Date(2016, 7, 11, 6, 14)
 const source = "TweetDeck"
 const permalink = "https://twitter.com/DanMentos/status/763589479055495168"
 
 const Tweet = { author, tweet, time, source, permalink }
-export default Tweet;
+export default Tweet
