@@ -55,7 +55,7 @@ const useFontSize = (fitInsideContainer: boolean, ref: RefObject<HTMLDivElement>
   });
 
   useEffect(() => {
-    handleResize();
+    setTimeout(handleResize, 100);
   }, [ref]);
 };
 
