@@ -15,7 +15,7 @@
     text-decoration: none;
 }
 
-.details a:hover, .details a:focus-visible {
+.details a:hover {
     text-decoration: underline;
 }
 

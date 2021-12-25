@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus, no-param-reassign */
 
-import { RefObject } from 'react';
+import { useEffect, RefObject } from 'react';
 import binarySearch from 'utils/binarySearch';
 import useResizeObserver from 'use-resize-observer';
 
@@ -53,6 +53,10 @@ const useFontSize = (fitInsideContainer: boolean, ref: RefObject<HTMLDivElement>
     box: 'border-box',
     onResize: fitInsideContainer ? handleResize : undefined,
   });
+
+  useEffect(() => {
+    handleResize();
+  }, [ref]);
 };
 
 export default useFontSize;

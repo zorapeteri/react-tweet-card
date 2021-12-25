@@ -64,6 +64,7 @@
 
 .engagement > span > div svg {
   fill: var(--tweet-card-primary);
+  flex: 1;
 }
 
 .engagement > span:hover > div svg {
