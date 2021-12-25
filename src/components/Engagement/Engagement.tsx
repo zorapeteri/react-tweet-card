@@ -7,10 +7,10 @@ import TwitterIcon from './Twitter';
 import Emoji from './Emoji';
 
 type EngagementProps = {
-    replies?: number;
-    retweets?: number;
-    likes?: number;
-    emojis?: boolean;
+  replies?: number;
+  retweets?: number;
+  likes?: number;
+  emojis?: boolean;
 }
 
 function Engagement({
@@ -29,15 +29,27 @@ function Engagement({
         globalClassName('engagement-container'),
       )}
     >
-      <span role="img" aria-label={`${replies} ${replies === 1 ? 'reply' : 'replies'}`}>
+      <span
+        role="img"
+        aria-label={`${replies} ${replies === 1 ? 'reply' : 'replies'}`}
+        className={globalClassName('replies')}
+      >
         <icons.replies />
         {formatEngagement(replies)}
       </span>
-      <span role="img" aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}>
+      <span
+        role="img" 
+        aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}
+        className={globalClassName('retweets')}
+      >
         <icons.retweets />
         {formatEngagement(retweets)}
       </span>
-      <span role="img" aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}>
+      <span 
+        role="img" 
+        aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}
+        className={globalClassName('likes')}
+      >
         <icons.likes />
         {formatEngagement(likes)}
       </span>
