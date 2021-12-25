@@ -1,6 +1,6 @@
 {
   "name": "react-tweet-card",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A React component to display tweets",
   "main": "lib/index.js",
   "scripts": {
