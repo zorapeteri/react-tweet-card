@@ -10,6 +10,14 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 
 ---
 
+## Installation
+
+```bash
+npm i react-tweet-card
+# or
+yarn add react-tweet-card
+```
+
 ## Features
 
 - [X] Responsive component
