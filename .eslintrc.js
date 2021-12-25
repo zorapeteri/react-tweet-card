@@ -26,6 +26,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-pascal-case': 'off',
     'no-restricted-exports': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
