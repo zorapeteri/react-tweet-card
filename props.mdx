@@ -90,10 +90,52 @@ import { Playground } from 'docz'
             <td>Optional</td>
         </tr>
         <tr>
+            <td><a href="/intro#displaying-engagement">engagement</a></td>
+            <td>The number of engagements (replies, RTs, likes) the tweet has received</td>
+            <td>{`{ replies?, retweets?, likes? }`}</td>
+            <td></td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- replies</td>
+            <td>Number of replies</td>
+            <td>number</td>
+            <td>0</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- retweets</td>
+            <td>Number of retweets</td>
+            <td>number</td>
+            <td>0</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;- likes</td>
+            <td>Number of likes</td>
+            <td>number</td>
+            <td>0</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>clickableProfileLink</td>
             <td>Creates a clickable visual effect on the name and profile picture of the author. If turned on, clicking these elements will open the user's profile on Twitter.</td>
             <td>boolean</td>
             <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>showDetails</td>
+            <td>Controls wheter the time and source of the tweet should be displayed</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>showEngagement</td>
+            <td>Controls wheter the engagements of the tweet should be displayed</td>
+            <td>boolean</td>
+            <td>true</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -120,6 +162,13 @@ import { Playground } from 'docz'
         <tr>
             <td><a href="/styling#blurred-background">blurredBackground</a></td>
             <td>Sets the card's background to blurred</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a href="/intro#using-emojis">emojis</a></td>
+            <td>If true, engagement icons will be replaced with emoji characters</td>
             <td>boolean</td>
             <td>false</td>
             <td>Optional</td>

@@ -63,3 +63,39 @@ To add these properties, add `isVerified: true` or `isProtected: true` to the `a
         />
     </Container>
 </Playground>
+
+## Displaying engagement
+
+You can use the `engagements` prop on the component to display the number of replies, retweets and likes a tweet has received. 
+The layout can look a bit overwhelming when both the tweet's details (time and source) and the engagements are displayed, so you can use the `showDetails` and `showEngagement` props to control the layout. 
+Both props are set to `true` by default.
+
+### Using emojis
+
+Setting the `emojis` prop to `true` will make the component use emoji characters for the engagement visuals instead of the icons used by Twitter.
+
+<Playground>
+    <Container>
+        <TweetCard
+            engagement={{
+                replies: 206,
+                retweets: 17600,
+                likes: 128200
+            }}
+            emojis={false} // try setting this to true 👀
+            showDetails={false} // try setting this to true 😬
+            author={{ 
+                name: 'Ethan Hardy', 
+                username: 'ethanhardy', 
+                image: 'https://pbs.twimg.com/profile_images/581307528828567552/wO10P9j__400x400.jpg',
+            }} 
+            tweet={
+                `You say that it's fucked that gingerbread men live in gingerbread houses, but to a gingerbread person, gingerbread is as inscrutable and fundamental as carbon. The people and homes are no more alike than humans are to diamonds. Only we, their gods and creators, can see the horror`
+            }
+            time={new Date(2021, 11, 21, 14, 6)}
+            source="Twitter for iPhone"
+            permalink="https://twitter.com/ethanhardy/status/1473278732676837382"
+            fitInsideContainer
+        />
+    </Container>
+</Playground>
