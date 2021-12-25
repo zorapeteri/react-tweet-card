@@ -1,6 +1,7 @@
 import React from 'react';
 import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
+import formatEngagement from 'utils/formatEngagement';
 import css from './Engagement.module.css';
 import TwitterIcon from './Twitter';
 import Emoji from './Emoji';
@@ -30,15 +31,15 @@ function Engagement({
     >
       <span role="img" aria-label={`${replies} ${replies === 1 ? 'reply' : 'replies'}`}>
         <icons.replies />
-        {replies}
+        {formatEngagement(replies)}
       </span>
       <span role="img" aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}>
         <icons.retweets />
-        {retweets}
+        {formatEngagement(retweets)}
       </span>
       <span role="img" aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}>
         <icons.likes />
-        {likes}
+        {formatEngagement(likes)}
       </span>
     </div>
   );

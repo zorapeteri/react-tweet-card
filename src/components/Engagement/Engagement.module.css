@@ -3,6 +3,7 @@
   color: var(--tweet-card-primary);
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   max-width: 20em;
   font-size: 1.1em;
   font-weight: 500;
