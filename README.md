@@ -8,7 +8,7 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 
 ---
 
-<img src="https://images2.imgbox.com/44/76/QE67R8re_o.png" width="500" />
+<img src="https://images2.imgbox.com/dd/74/Mb1AJROK_o.png" width="500" />
 
 ---
 
