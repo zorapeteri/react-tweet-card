@@ -23,6 +23,7 @@ yarn add react-tweet-card
 - [X] Responsive component
 - [X] Component scales to fit inside any container
 - [X] Light, dim and dark themes
+- [X] Dark mode preference support
 - [X] Gradient and blurred container styles
 - [X] styled-components and emotion support
 - [X] TypeScript support
