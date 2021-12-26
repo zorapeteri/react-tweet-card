@@ -1,5 +1,7 @@
 # react-tweet-card
 
+[![NPM](https://img.shields.io/npm/v/react-tweet-card.svg)](https://www.npmjs.com/package/react-tweet-card)
+
 A Tweet Card component you can use easily in your React projects. It doesn't rely on the Twitter API but instead lets you feed in all information about the tweet you're displaying. This way you can create cards for fictional tweets or tweets that have been deleted.
 
 [:bird: Demo and documentation](https://zorapeteri.github.io/react-tweet-card)
