@@ -74,12 +74,12 @@ function replaceLinksUsernamesHashtags(el: HTMLElement) {
   el.innerHTML = replaceHashtags(replaceUsernames(replaceLinks(el.textContent || '')));
 }
 
-const useLinksUsernamesHashtags = (ref: React.RefObject<HTMLElement>) => {
+const useLinksUsernamesHashtags = (ref: React.RefObject<HTMLElement>, text: string) => {
   useEffect(() => {
     if (ref?.current) {
       replaceLinksUsernamesHashtags(ref.current);
     }
-  }, [ref]);
+  }, [ref, text]);
 };
 
 export default useLinksUsernamesHashtags;

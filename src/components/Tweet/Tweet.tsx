@@ -10,7 +10,7 @@ type TweetProps = {
 
 const Tweet = ({ tweet }: TweetProps) => {
   const ref = useRef(null);
-  useLinksUsernamesHashtags(ref);
+  useLinksUsernamesHashtags(ref, tweet);
 
   return (
     <p
