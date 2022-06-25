@@ -15,13 +15,20 @@ type UserDetailsProps = {
 
 const UserDetails = ({
   name, username, image, isVerified, isProtected, clickableProfileLink,
-}: UserDetailsProps) => (
-  <a
-    href={clickableProfileLink ? `https://twitter.com/${username}` : ''}
-    target="_blank"
-    className={css.userDetails}
-    rel="noreferrer"
-    aria-label={
+}: UserDetailsProps) => {
+  const Tag = clickableProfileLink ? 'a' : 'div';
+
+  return (
+    <Tag
+      {...(clickableProfileLink
+        && {
+          href: `https://twitter.com/${username}`,
+          target: '_blank',
+          rel: 'noreferrer',
+        }
+      )}
+      className={css.userDetails}
+      aria-label={
       [
         `Tweet by Twitter user ${name} (@${username})`,
         isVerified && 'This twitter account is verified',
@@ -29,15 +36,16 @@ const UserDetails = ({
         clickableProfileLink && 'Click this link to open their profile on twitter.com',
       ].filter(Boolean).join('. ')
     }
-  >
-    <ProfilePicture {...({ image, clickableProfileLink })} />
-    <Name
-      {...({
-        name, isVerified, isProtected, clickableProfileLink,
-      })}
-    />
-    <Username {...({ username })} />
-  </a>
-);
+    >
+      <ProfilePicture {...({ image, clickableProfileLink })} />
+      <Name
+        {...({
+          name, isVerified, isProtected, clickableProfileLink,
+        })}
+      />
+      <Username {...({ username })} />
+    </Tag>
+  );
+};
 
 export default UserDetails;
