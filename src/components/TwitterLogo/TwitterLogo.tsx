@@ -8,24 +8,30 @@ type TwitterLogoProps = {
   permalink?: string;
 }
 
-const TwitterLogo = ({ permalink }: TwitterLogoProps) => (
-  <a
-    href={permalink || ''}
-    target="_blank"
-    rel="noreferrer"
-    aria-hidden={!permalink}
-    aria-label={permalink && 'View tweet on twitter.com'}
-  >
-    <img
-      src={svg}
-      {...className(
-        globalClassName('twitter-logo'),
-        css.twitterLogo,
-      )}
-      alt=""
-    />
-  </a>
+const TwitterLogo = ({ permalink }: TwitterLogoProps) => {
+  const Tag = permalink ? 'a' : 'div';
 
-);
+  return (
+    <Tag
+      {...(permalink ? {
+        href: permalink,
+        target: '_blank',
+        rel: 'noreferrer',
+        'aria-label': 'View tweet on twitter.com',
+      } : {
+        'aria-hidden': true,
+      })}
+    >
+      <img
+        src={svg}
+        {...className(
+          globalClassName('twitter-logo'),
+          css.twitterLogo,
+        )}
+        alt=""
+      />
+    </Tag>
+  );
+};
 
 export default TwitterLogo;
