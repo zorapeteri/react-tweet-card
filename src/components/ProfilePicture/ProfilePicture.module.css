@@ -8,3 +8,7 @@
 .clickable:hover {
     filter: brightness(0.9);
 }
+
+.hide {
+    display: none;
+}
