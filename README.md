@@ -35,6 +35,11 @@ yarn add react-tweet-card
 - [X] Support for hashtags in tweet
 - [X] Display number of replies, retweets and likes
 
+## Server-side rendering
+
+`react-tweet-card` can only be rendered on the client side as it loads its CSS directly into the DOM.
+To make it work with SSR, try importing the package dynamically.
+
 ## Design credits
 
 Component layout is based on [Tweety by Ashwin G](https://www.figma.com/community/file/1028255898372668126)
