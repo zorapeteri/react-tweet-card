@@ -1,14 +1,11 @@
+import { TweetCardProps } from 'index';
 import React from 'react';
 import className from 'utils/className';
 import formatTweetTime from 'utils/formatTweetTime';
 import globalClassName from 'utils/globalClassName';
 import css from './Details.module.css';
 
-type DetailsProps = {
-  time: Date | string;
-  source?: string;
-  permalink?: string;
-};
+type DetailsProps = Pick<TweetCardProps, 'time' | 'source' | 'permalink'>;
 
 function Details({ time, source, permalink }: DetailsProps) {
   const formattedTime = time instanceof Date ? formatTweetTime(time) : time;

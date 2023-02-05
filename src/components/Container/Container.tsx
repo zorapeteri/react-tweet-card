@@ -4,22 +4,25 @@ import useFontSize from 'hooks/useFontSize';
 import classNameUtil from 'utils/className';
 import './Container.css';
 import getCSSVariables from 'utils/getCSSVariables';
-import themes, { ThemeOption, TweetCardColors } from 'themes';
+import themes from 'themes';
 import globalClassName from 'utils/globalClassName';
 import useGradientBackground from 'hooks/useGradientBackground';
 import useBlurredBackground from 'hooks/useBlurredBackground';
 import useTheme from 'hooks/useTheme';
+import { TweetCardProps } from 'index';
 import css from './Container.module.css';
 
 type ContainerProps = HTMLAttributes<HTMLDivElement> & {
-    children: any;
-    className?: string,
-    theme?: ThemeOption;
-    colors?: TweetCardColors;
-    gradientBackground?: boolean;
-    blurredBackground?: boolean;
-    fitInsideContainer?: boolean;
-}
+  children: any;
+  className?: string;
+} & Pick<
+    TweetCardProps,
+    | 'theme'
+    | 'colors'
+    | 'gradientBackground'
+    | 'blurredBackground'
+    | 'fitInsideContainer'
+  >;
 
 const Container = ({
   children,
@@ -29,7 +32,7 @@ const Container = ({
   blurredBackground,
   fitInsideContainer = false,
   ...rest
-} : ContainerProps) => {
+}: ContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const twitterLogo = useTwitterLogo(containerRef);
   useFontSize(fitInsideContainer, containerRef);
@@ -38,12 +41,12 @@ const Container = ({
 
   const gradientStyle = useMemo(
     () => useGradientBackground(gradientBackground, colors, themes[theme]),
-    [gradientBackground, theme, colors.background],
+    [gradientBackground, theme, colors.background]
   );
 
   const blurredStyle = useMemo(
     () => useBlurredBackground(blurredBackground, colors, themes[theme]),
-    [blurredBackground, theme, colors.background],
+    [blurredBackground, theme, colors.background]
   );
 
   return (
@@ -54,7 +57,7 @@ const Container = ({
         fitInsideContainer && css.fitInsideContainer,
         className,
         css.container,
-        twitterLogo,
+        twitterLogo
       )}
       {...rest}
       style={{

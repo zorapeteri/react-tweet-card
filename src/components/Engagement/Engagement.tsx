@@ -2,16 +2,13 @@ import React from 'react';
 import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
 import formatEngagement from 'utils/formatEngagement';
+import { TweetCardProps } from 'index';
 import css from './Engagement.module.css';
 import TwitterIcon from './Twitter';
 import Emoji from './Emoji';
 
-type EngagementProps = {
-  replies?: number;
-  retweets?: number;
-  likes?: number;
-  emojis?: boolean;
-};
+type EngagementProps = TweetCardProps['engagement'] &
+  Pick<TweetCardProps, 'emojis'>;
 
 function Engagement({
   replies = 0,
