@@ -1,5 +1,5 @@
 import { TweetCardProps } from 'index';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
 import css from './ProfilePicture.module.css';
@@ -7,43 +7,24 @@ import css from './ProfilePicture.module.css';
 type ProfilePictureProps = Pick<TweetCardProps['author'], 'image'> &
   Pick<TweetCardProps, 'clickableProfileLink'>;
 
-const fallback =
-  'https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png';
-
 const ProfilePicture = ({
   image,
   clickableProfileLink,
-}: ProfilePictureProps) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  useEffect(() => setImageLoaded(false), [image]);
-
-  return (
-    <>
-      <img
-        src={image}
-        alt=""
-        {...className(
-          globalClassName('author-image'),
-          css.profilePicture,
-          clickableProfileLink && css.clickable,
-          !imageLoaded && css.hide
-        )}
-        onError={() => setImageLoaded(false)}
-        onLoad={() => setImageLoaded(true)}
-      />
-      <img
-        src={fallback}
-        alt=""
-        {...className(
-          globalClassName('author-image'),
-          css.profilePicture,
-          clickableProfileLink && css.clickable,
-          imageLoaded && css.hide
-        )}
-      />
-    </>
-  );
-};
+}: ProfilePictureProps) => (
+  <div
+    {...className(
+      globalClassName('author-image'),
+      css.profilePictureContainer,
+      clickableProfileLink && css.clickable
+    )}
+  >
+    <div
+      style={{ backgroundImage: `url(${image})` }}
+      aria-hidden
+      {...className(css.profilePicture)}
+    />
+    <div aria-hidden {...className(css.fallbackPicture)} />
+  </div>
+);
 
 export default ProfilePicture;
