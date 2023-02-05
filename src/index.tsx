@@ -23,7 +23,7 @@ export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   };
   tweet: string;
   time: Date | string;
-  source: string;
+  source?: string;
   permalink?: string;
   clickableProfileLink?: boolean;
   theme?: ThemeOption;

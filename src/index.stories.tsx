@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import TweetCard, { TweetCardProps } from './';
+import TweetCard, { TweetCardProps } from '.';
 
 export default {
   title: 'Components/TweetCard',
@@ -64,7 +64,8 @@ const baseArgs = {
   image:
     'https://pbs.twimg.com/profile_images/1611461938860400646/8tfem0_u_400x400.jpg',
 
-  tweet: `having to explain to my cat that i also don't know what that sound outside is but i don't like it either`,
+  tweet:
+    "having to explain to my cat that i also don't know what that sound outside is but i don't like it either",
   time: new Date('2023/01/15 10:42'),
   source: '',
   verified: false,
