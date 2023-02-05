@@ -8,13 +8,13 @@ import Engagement from 'components/Engagement';
 import { ThemeOption, TweetCardColors } from './themes';
 import './index.css';
 
-type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
+export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
-    name: string,
-    username: string,
-    image: string,
-    isVerified?: boolean,
-    isProtected?: boolean,
+    name: string;
+    username: string;
+    image: string;
+    isVerified?: boolean;
+    isProtected?: boolean;
   };
   engagement?: {
     replies?: number;
@@ -34,7 +34,7 @@ type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   showDetails?: boolean;
   showEngagement?: boolean;
   emojis?: boolean;
-}
+};
 
 const TweetCard = ({
   author,
@@ -48,13 +48,13 @@ const TweetCard = ({
   showEngagement = true,
   emojis,
   ...rest
-} : TweetCardProps) => (
-  <Container {...({ ...rest })}>
-    <UserDetails {...({ ...author, clickableProfileLink })} />
-    <TwitterLogo {...({ permalink })} />
-    <Tweet {...({ tweet })} />
-    {showDetails && <Details {...({ time, source, permalink })} />}
-    {showEngagement && <Engagement {...({ ...engagement, emojis })} />}
+}: TweetCardProps) => (
+  <Container {...{ ...rest }}>
+    <UserDetails {...{ ...author, clickableProfileLink }} />
+    <TwitterLogo {...{ permalink }} />
+    <Tweet {...{ tweet }} />
+    {showDetails && <Details {...{ time, source, permalink }} />}
+    {showEngagement && <Engagement {...{ ...engagement, emojis }} />}
   </Container>
 );
 
