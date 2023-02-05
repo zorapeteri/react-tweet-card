@@ -11,10 +11,13 @@ type EngagementProps = {
   retweets?: number;
   likes?: number;
   emojis?: boolean;
-}
+};
 
 function Engagement({
-  replies = 0, retweets = 0, likes = 0, emojis,
+  replies = 0,
+  retweets = 0,
+  likes = 0,
+  emojis,
 }: EngagementProps) {
   if (!(replies || retweets || likes)) {
     return null;
@@ -24,10 +27,7 @@ function Engagement({
 
   return (
     <div
-      {...className(
-        css.engagement,
-        globalClassName('engagement-container'),
-      )}
+      {...className(css.engagement, globalClassName('engagement-container'))}
     >
       <span
         role="img"
@@ -38,15 +38,15 @@ function Engagement({
         {formatEngagement(replies)}
       </span>
       <span
-        role="img" 
+        role="img"
         aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}
         className={globalClassName('retweets')}
       >
         <icons.retweets />
         {formatEngagement(retweets)}
       </span>
-      <span 
-        role="img" 
+      <span
+        role="img"
         aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}
         className={globalClassName('likes')}
       >
