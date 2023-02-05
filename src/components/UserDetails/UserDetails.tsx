@@ -13,6 +13,8 @@ const UserDetails = ({
   username,
   image,
   isVerified,
+  isGovernment,
+  isBusiness,
   isProtected,
   clickableProfileLink,
 }: UserDetailsProps) => {
@@ -41,6 +43,8 @@ const UserDetails = ({
         {...{
           name,
           isVerified,
+          isGovernment,
+          isBusiness,
           isProtected,
           clickableProfileLink,
         }}

@@ -38,6 +38,8 @@ const buildProps = (args: any) => {
       username: args.username,
       image: args.image,
       isVerified: args.verified,
+      isGovernment: args.government,
+      isBusiness: args.business,
       isProtected: args.protected,
     },
     tweet,
@@ -69,6 +71,8 @@ const baseArgs = {
   time: new Date('2023/01/15 10:42'),
   source: '',
   verified: false,
+  government: false,
+  business: false,
   protected: false,
   fitInsideContainer: true,
   showEmojis: false,
@@ -116,6 +120,10 @@ export const WithPermalink = make({
 });
 
 export const Verified = make({ verified: true });
+
+export const Government = make({ verified: true, government: true });
+
+export const Business = make({ verified: true, business: true });
 
 export const Protected = make({ protected: true });
 

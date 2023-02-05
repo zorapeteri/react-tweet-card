@@ -1,14 +1,20 @@
 import React from 'react';
 import className from 'utils/className';
-import VerifiedBadgeSvg from 'assets/VerifiedBadge.svg';
 import globalClassName from 'utils/globalClassName';
 import { TweetCardProps } from 'index';
 import css from './Name.module.css';
 import Padlock from './Padlock';
+import VerifiedBadge from './VerifiedBadge';
+
+const badgeColors = {
+  basic: '#1da1f2',
+  business: '#dcab00',
+  government: '#829aab',
+};
 
 type NameProps = Pick<
   TweetCardProps['author'],
-  'name' | 'isVerified' | 'isProtected'
+  'name' | 'isVerified' | 'isBusiness' | 'isGovernment' | 'isProtected'
 > &
   Pick<TweetCardProps, 'clickableProfileLink'>;
 
@@ -16,7 +22,9 @@ const Name = ({
   name,
   clickableProfileLink,
   isVerified,
+  isGovernment,
   isProtected,
+  isBusiness,
 }: NameProps) => (
   <span
     {...className(
@@ -27,10 +35,14 @@ const Name = ({
   >
     <span>{name}</span>
     {isVerified && (
-      <img
-        src={VerifiedBadgeSvg}
-        alt="verified twitter acount"
+      <VerifiedBadge
         {...className(globalClassName('verified-badge'), css.verifiedBadge)}
+        style={{
+          fill:
+            (isGovernment && badgeColors.government) ||
+            (isBusiness && badgeColors.business) ||
+            badgeColors.basic,
+        }}
       />
     )}
     {isProtected && (

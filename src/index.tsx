@@ -15,6 +15,8 @@ export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     image: string;
     isVerified?: boolean;
     isProtected?: boolean;
+    isBusiness?: boolean;
+    isGovernment?: boolean;
   };
   engagement?: {
     replies?: number;
