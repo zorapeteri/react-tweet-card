@@ -41,6 +41,8 @@ module.exports = {
       },
     ],
     'comma-dangle': 'off',
+    'operator-linebreak': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
   settings: {
     'import/resolver': {
