@@ -84,12 +84,13 @@ const baseArgs = {
 };
 
 const Template: ComponentStory<any> = (args) => {
+  const { gradientBackground, blurredBackground } = args;
   useEffect(() => {
     document.body.classList.toggle(
       'showPic',
-      args.gradientBackground || args.blurredBackground
+      gradientBackground || blurredBackground
     );
-  }, [args.gradientBackground, args.blurredBackground]);
+  }, [gradientBackground, blurredBackground]);
   return <TweetCard {...buildProps(args)} />;
 };
 
