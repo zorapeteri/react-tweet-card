@@ -27,6 +27,7 @@ yarn add react-tweet-card
 - [X] Gradient and blurred container styles
 - [X] styled-components and emotion support
 - [X] TypeScript support
+- [X] Support for images in tweet
 - [X] Support for verified and protected Twitter accounts
 - [X] Support for @mentions in tweet
 - [X] Support for links in tweet
