@@ -1,0 +1,25 @@
+.imageContainer {
+  grid-column: 1/3;
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 50%;
+}
+.imageContent {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: grid;
+  height: 100%;
+  gap: 0.125rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+.imageBackground {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
