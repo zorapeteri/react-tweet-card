@@ -18,6 +18,7 @@ export default {
 const buildProps = (args: any) => {
   const {
     tweet,
+    tweetImages,
     time,
     source,
     permalink,
@@ -43,6 +44,7 @@ const buildProps = (args: any) => {
       isProtected: args.protected,
     },
     tweet,
+    tweetImages,
     time,
     source,
     permalink,
@@ -68,13 +70,17 @@ const baseArgs = {
 
   tweet:
     "having to explain to my cat that i also don't know what that sound outside is but i don't like it either",
+  tweetImages: [
+    'https://pbs.twimg.com/media/FkwE7_fWQAAvysZ.jpg',
+    'https://pbs.twimg.com/ext_tw_video_thumb/1610674881439436802/pu/img/hYQnfH3vzYulzEUD.jpg',
+  ],
   time: new Date('2023/01/15 10:42'),
   source: '',
   verified: false,
   government: false,
   business: false,
   protected: false,
-  fitInsideContainer: true,
+  fitInsideContainer: false,
   showEmojis: false,
   clickableProfileLink: false,
   showDetails: true,
@@ -132,6 +138,12 @@ export const WithoutDetails = make({ showDetails: false });
 export const WithClickableProfileLink = make({ clickableProfileLink: true });
 
 export const WithEngagement = make({ replies: 12, retweets: 34, likes: 56 });
+
+export const TweetImages = make({
+  tweetImages: [
+    'https://pbs.twimg.com/media/FkwE7_fWQAAvysZ.jpg',
+    'https://pbs.twimg.com/ext_tw_video_thumb/1610674881439436802/pu/img/hYQnfH3vzYulzEUD.jpg',
+  ]});
 
 export const WithBigEngagement = make({
   replies: 12000,

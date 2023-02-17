@@ -7,6 +7,7 @@ import TwitterLogo from 'components/TwitterLogo';
 import Engagement from 'components/Engagement';
 import { ThemeOption, TweetCardColors } from './themes';
 import './index.css';
+import TweetImage from 'components/TweetImage';
 
 export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
@@ -24,6 +25,7 @@ export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     likes?: number;
   };
   tweet: string;
+  tweetImages?: string[];
   time: Date | string;
   source?: string;
   permalink?: string;
@@ -49,12 +51,14 @@ const TweetCard = ({
   showDetails = true,
   showEngagement = true,
   emojis,
+  tweetImages,
   ...rest
 }: TweetCardProps) => (
   <Container {...{ ...rest }}>
     <UserDetails {...{ ...author, clickableProfileLink }} />
     <TwitterLogo {...{ permalink }} />
     <Tweet {...{ tweet }} />
+    {(tweetImages?.length ?? false) > 0 && <TweetImage {...{ tweetImages }} />  }
     {showDetails && <Details {...{ time, source, permalink }} />}
     {showEngagement && <Engagement {...{ ...engagement, emojis }} />}
   </Container>
