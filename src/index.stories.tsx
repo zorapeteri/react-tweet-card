@@ -70,17 +70,13 @@ const baseArgs = {
 
   tweet:
     "having to explain to my cat that i also don't know what that sound outside is but i don't like it either",
-  tweetImages: [
-    'https://pbs.twimg.com/media/FkwE7_fWQAAvysZ.jpg',
-    'https://pbs.twimg.com/ext_tw_video_thumb/1610674881439436802/pu/img/hYQnfH3vzYulzEUD.jpg',
-  ],
   time: new Date('2023/01/15 10:42'),
   source: '',
   verified: false,
   government: false,
   business: false,
   protected: false,
-  fitInsideContainer: false,
+  fitInsideContainer: true,
   showEmojis: false,
   clickableProfileLink: false,
   showDetails: true,
@@ -94,13 +90,17 @@ const baseArgs = {
 };
 
 const Template: ComponentStory<any> = (args) => {
-  const { gradientBackground, blurredBackground } = args;
+  const { gradientBackground, blurredBackground, tweetImages } = args;
   useEffect(() => {
     document.body.classList.toggle(
-      'showPic',
+      'showBackgroundPic',
       gradientBackground || blurredBackground
     );
   }, [gradientBackground, blurredBackground]);
+
+  useEffect(() => {
+    document.body.classList.toggle('hasTweetImage', !!tweetImages);
+  }, [tweetImages]);
   return <TweetCard {...buildProps(args)} />;
 };
 
@@ -139,11 +139,39 @@ export const WithClickableProfileLink = make({ clickableProfileLink: true });
 
 export const WithEngagement = make({ replies: 12, retweets: 34, likes: 56 });
 
-export const TweetImages = make({
+export const WithSingleImage = make({
   tweetImages: [
-    'https://pbs.twimg.com/media/FkwE7_fWQAAvysZ.jpg',
-    'https://pbs.twimg.com/ext_tw_video_thumb/1610674881439436802/pu/img/hYQnfH3vzYulzEUD.jpg',
-  ]});
+    {
+      src: 'https://images.unsplash.com/photo-1670884305917-910eb2704c59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    },
+  ],
+});
+
+export const WithMultipleImages = make({
+  tweetImages: [
+    {
+      src: 'https://images.unsplash.com/photo-1670884305917-910eb2704c59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1669303812553-c4b34cb21ff5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDI0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1604276920302-0bb781ed727c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDE4MHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+    },
+  ],
+});
+
+export const WithVideoThumbnail = make({
+  tweetImages: [
+    {
+      src: 'https://images.unsplash.com/photo-1604276920302-0bb781ed727c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDE4MHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+      isVideoThumbnail: true,
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1669303812553-c4b34cb21ff5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDI0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    },
+  ],
+});
 
 export const WithBigEngagement = make({
   replies: 12000,
