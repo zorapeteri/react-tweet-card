@@ -3,13 +3,13 @@ import className from 'utils/className';
 import globalClassName from 'utils/globalClassName';
 import { TweetCardProps } from 'index';
 import VideoButton from 'components/VideoButton';
-import css from './TweetImage.module.css';
+import css from './TweetImages.module.css';
 
 type TweetImagesProps = Pick<TweetCardProps, 'tweetImages'>;
 
-const TweetImage = ({ tweetImages = [] }: TweetImagesProps) => {
+const TweetImages = ({ tweetImages = [] }: TweetImagesProps) => {
   const ref = useRef(null);
-  const count = tweetImages.length;
+  const count = Math.min(tweetImages.length, 4);
   return (
     <div {...className(globalClassName('imageContainer'), css.imageContainer)}>
       <div
@@ -20,7 +20,7 @@ const TweetImage = ({ tweetImages = [] }: TweetImagesProps) => {
           gridTemplateColumns: count > 1 ? '1fr 1fr' : '1fr',
         }}
       >
-        {tweetImages.map(({ src, isVideoThumbnail }, index) => (
+        {tweetImages.slice(0, 4).map(({ src, isVideoThumbnail }, index) => (
           <div
             {...className(globalClassName('image'), css.imageBackground)}
             key={src}
@@ -37,4 +37,4 @@ const TweetImage = ({ tweetImages = [] }: TweetImagesProps) => {
   );
 };
 
-export default TweetImage;
+export default TweetImages;

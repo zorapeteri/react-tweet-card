@@ -5,7 +5,7 @@ import Tweet from 'components/Tweet';
 import Container from 'components/Container';
 import TwitterLogo from 'components/TwitterLogo';
 import Engagement from 'components/Engagement';
-import TweetImage from 'components/TweetImage';
+import TweetImages from 'components/TweetImages';
 import { ThemeOption, TweetCardColors } from './themes';
 import './index.css';
 
@@ -61,7 +61,7 @@ const TweetCard = ({
     <UserDetails {...{ ...author, clickableProfileLink }} />
     <TwitterLogo {...{ permalink }} />
     <Tweet {...{ tweet }} />
-    {tweetImages?.length && <TweetImage {...{ tweetImages }} />}
+    {tweetImages?.length && <TweetImages {...{ tweetImages }} />}
     {showDetails && <Details {...{ time, source, permalink }} />}
     {showEngagement && <Engagement {...{ ...engagement, emojis }} />}
   </Container>
