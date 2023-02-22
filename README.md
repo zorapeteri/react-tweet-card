@@ -23,19 +23,19 @@ yarn add react-tweet-card
 
 ## Features
 
-- Responsive component
-- Component scales to fit inside any container
-- Light, dim and dark themes
-- Dark mode preference support
-- Gradient and blurred container styles
-- styled-components and emotion support
-- TypeScript support
-- Support for images in tweet
-- Support for verified and protected Twitter accounts
-- Support for @mentions in tweet
-- Support for links in tweet
-- Support for hashtags in tweet
-- Display number of replies, retweets and likes
+- [X] Responsive component
+- [X] Component scales to fit inside any container
+- [X] Light, dim and dark themes
+- [X] Dark mode preference support
+- [X] Gradient and blurred container styles
+- [X] styled-components and emotion support
+- [X] TypeScript support
+- [X] Support for images in tweet
+- [X] Support for verified and protected Twitter accounts
+- [X] Support for @mentions in tweet
+- [X] Support for links in tweet
+- [X] Support for hashtags in tweet
+- [X] Display number of replies, retweets and likes
 
 ## Server-side rendering
 
