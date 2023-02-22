@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { photos } from '../photos'
 
-const Container = ({ children }: { children: any }) => {
-  const ref = useRef(null)
+const Container = ({
+  children,
+  withImages,
+}: {
+  children: any
+  withImages?: boolean
+}) => {
+  const ref = useRef<HTMLDivElement>(null)
   const [bgImage, setBgImage] = useState('')
+  const [hasImage, setHasImage] = useState(false)
 
   useEffect(() => {
     if (ref?.current) {
@@ -14,6 +21,12 @@ const Container = ({ children }: { children: any }) => {
           ).indexOf(ref.current)
         ]
       )
+
+      setTimeout(() => {
+        setHasImage(
+          Boolean(ref?.current?.querySelector('.react-tweet-card__image'))
+        )
+      }, 250)
     }
   }, [ref])
 
@@ -27,7 +40,7 @@ const Container = ({ children }: { children: any }) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100%',
-        height: '300px',
+        height: hasImage ? '600px' : '300px',
         display: 'grid',
         placeItems: 'center',
         padding: '30px 50px',

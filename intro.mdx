@@ -66,6 +66,35 @@ You can also use `isGovernment` or `isBusiness` alongside `isVerified`.
     </Container>
 </Playground>
 
+## Adding images
+
+You can add images to a tweet by using the `tweetImages` prop. You have to pass in an array of objects that have a `src` property with the URL to your images.
+You can also add an `isVideoThumbnail` property set to `true`, which does exactly what you would think. A maximum of 4 images is allowed within a tweet.
+
+Note: The `fitInsideContainer` prop makes the card fill out its parent container, so when you're dynamically changing the content of your tweet, make sure to allocate
+enough visual space for the images, and pay attention the aspect ratio of the container. 
+
+<Playground>
+    <Container>
+        <TweetCard
+            author={{
+                name: 'demi adejuyigbe',
+                username: 'electrolemon',
+                isVerified: true,
+            }} 
+            tweet={`4 months ago i quietly left 57 dvds of 'click' at my parents' house and they've still never noticed or mentioned it`}
+            tweetImages={[
+                { src: 'https://pbs.twimg.com/media/BaMEhYBCAAAi6m-?format=jpg' },
+                { src: 'https://pbs.twimg.com/media/BaMEhYBCAAAi6m-?format=jpg' },
+                { src: 'https://pbs.twimg.com/media/BaMEhYBCAAAi6m-?format=jpg', isVideoThumbnail: true },
+            ]}
+            time={new Date(2022, 10, 28, 22, 30)}
+            permalink="https://twitter.com/electrolemon/status/406173363174785024"
+            fitInsideContainer
+        />
+    </Container>
+</Playground>
+
 ## Displaying engagement
 
 You can use the `engagements` prop on the component to display the number of replies, retweets and likes a tweet has received. 
