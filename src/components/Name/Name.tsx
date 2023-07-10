@@ -5,6 +5,7 @@ import { TweetCardProps } from 'index';
 import css from './Name.module.css';
 import Padlock from './Padlock';
 import VerifiedBadge from './VerifiedBadge';
+import ThreadVerifiedBadge from './ThreadsVerifiedBadge';
 
 const badgeColors = {
   basic: '#1da1f2',
@@ -16,7 +17,7 @@ type NameProps = Pick<
   TweetCardProps['author'],
   'name' | 'isVerified' | 'isBusiness' | 'isGovernment' | 'isProtected'
 > &
-  Pick<TweetCardProps, 'clickableProfileLink'>;
+  Pick<TweetCardProps, 'clickableProfileLink' | 'threads'>;
 
 const Name = ({
   name,
@@ -25,6 +26,7 @@ const Name = ({
   isGovernment,
   isProtected,
   isBusiness,
+  threads
 }: NameProps) => (
   <span
     {...className(
@@ -32,19 +34,25 @@ const Name = ({
       css.name,
       clickableProfileLink && css.clickable
     )}
+    {
+    ...(threads && { style: { marginTop: '0.7rem' } })
+    }
   >
     <span>{name}</span>
-    {isVerified && (
-      <VerifiedBadge
-        {...className(globalClassName('verified-badge'), css.verifiedBadge)}
-        style={{
-          fill:
-            (isGovernment && badgeColors.government) ||
-            (isBusiness && badgeColors.business) ||
-            badgeColors.basic,
-        }}
-      />
-    )}
+    {isVerified && (threads ?
+      (<ThreadVerifiedBadge {...className(globalClassName('verified-badge'), css.threadVerifiedBadge)} />)
+      :
+      (
+        <VerifiedBadge
+          {...className(globalClassName('verified-badge'), css.verifiedBadge)}
+          style={{
+            fill:
+              (isGovernment && badgeColors.government) ||
+              (isBusiness && badgeColors.business) ||
+              badgeColors.basic,
+          }}
+        />
+      ))}
     {isProtected && (
       <Padlock {...className(globalClassName('protected-icon'), css.padlock)} />
     )}

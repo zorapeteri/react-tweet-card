@@ -10,7 +10,6 @@ type TweetProps = Pick<TweetCardProps, 'tweet'>;
 const Tweet = ({ tweet }: TweetProps) => {
   const ref = useRef(null);
   useLinksUsernamesHashtags(ref, tweet);
-
   return (
     <p
       ref={ref}

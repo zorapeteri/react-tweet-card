@@ -5,8 +5,7 @@ import Name from '../Name';
 import Username from '../Username';
 import css from './UserDetails.module.css';
 
-type UserDetailsProps = TweetCardProps['author'] &
-  Pick<TweetCardProps, 'clickableProfileLink'>;
+type UserDetailsProps = TweetCardProps['author'] & Pick<TweetCardProps, 'clickableProfileLink' | 'threads'>;
 
 const UserDetails = ({
   name,
@@ -17,39 +16,59 @@ const UserDetails = ({
   isBusiness,
   isProtected,
   clickableProfileLink,
+  threads,
 }: UserDetailsProps) => {
   const Tag = clickableProfileLink ? 'a' : 'div';
 
   return (
     <Tag
       {...(clickableProfileLink && {
-        href: `https://twitter.com/${username}`,
+        href: (threads ? `https://threads.net/@${username}` : `https://twitter.com/${username}`),
         target: '_blank',
         rel: 'noreferrer',
       })}
       className={css.userDetails}
       aria-label={[
-        `Tweet by Twitter user ${name} (@${username})`,
-        isVerified && 'This twitter account is verified',
-        isProtected && "This twitter account's tweets are protected",
+        `${threads ? 'Thread by Threads' : `Tweet by Twitter user ${name}`} (@${username})`,
+        isVerified && `This ${threads ? 'Threads' : 'Twitter'} account is verified`,
+        isProtected && `This ${threads ? 'Threads' : 'Twitter'} account's ${threads ? 'threads' : 'tweets'} are protected`,
         clickableProfileLink &&
-          'Click this link to open their profile on twitter.com',
+        `Click this link to open their profile on ${threads ? 'threads.net' : 'twitter.com'}`,
       ]
         .filter(Boolean)
         .join('. ')}
     >
       <ProfilePicture {...{ image, clickableProfileLink }} />
-      <Name
-        {...{
-          name,
-          isVerified,
-          isGovernment,
-          isBusiness,
-          isProtected,
-          clickableProfileLink,
-        }}
-      />
-      <Username {...{ username }} />
+      {threads ? (
+
+        <Name
+          {...{
+            name: username,
+            isVerified,
+            isGovernment,
+            isBusiness,
+            isProtected,
+            clickableProfileLink,
+            threads
+          }}
+        />
+
+      ) : (
+        <>
+          <Name
+            {...{
+              name,
+              isVerified,
+              isGovernment,
+              isBusiness,
+              isProtected,
+              clickableProfileLink,
+              threads,
+            }}
+          />
+          <Username {...{ username }} />
+        </>
+      )}
     </Tag>
   );
 };

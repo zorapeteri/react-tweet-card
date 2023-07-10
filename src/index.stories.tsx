@@ -32,6 +32,7 @@ const buildProps = (args: any) => {
     showDetails,
     gradientBackground,
     blurredBackground,
+    threads,
   } = args;
   const props: TweetCardProps = {
     author: {
@@ -55,6 +56,7 @@ const buildProps = (args: any) => {
     gradientBackground,
     blurredBackground,
     theme,
+    threads,
     ...(replies || likes || retweets
       ? { engagement: { replies, likes, retweets } }
       : {}),
@@ -91,6 +93,7 @@ const baseArgs = {
   theme: 'light',
   gradientBackground: false,
   blurredBackground: false,
+  threads: false
 };
 
 const Template: ComponentStory<any> = (args) => {
@@ -143,7 +146,8 @@ export const TweetImages = make({
   tweetImages: [
     'https://pbs.twimg.com/media/FkwE7_fWQAAvysZ.jpg',
     'https://pbs.twimg.com/ext_tw_video_thumb/1610674881439436802/pu/img/hYQnfH3vzYulzEUD.jpg',
-  ]});
+  ]
+});
 
 export const WithBigEngagement = make({
   replies: 12000,
