@@ -2,8 +2,7 @@
   grid-column: 1/3;
   position: relative;
   width: 100%;
-  height: 0px;
-  padding-bottom: 50%;
+  height: 21.5em;
 }
 .imageContent {
   position: absolute;

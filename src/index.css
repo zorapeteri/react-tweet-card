@@ -3,12 +3,12 @@
 .react-tweet-card--username-in-tweet,
 .react-tweet-card--hashtag-in-tweet,
 .react-tweet-card--link-in-tweet {
-    color: var(--tweet-card-accent);
-    text-decoration: none;
+  color: var(--tweet-card-accent);
+  text-decoration: none;
 }
 
 .react-tweet-card--username-in-tweet:hover,
 .react-tweet-card--hashtag-in-tweet:hover,
 .react-tweet-card--link-in-tweet:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

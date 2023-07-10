@@ -6,7 +6,10 @@ A Tweet Card component you can use easily in your React projects. It doesn't rel
 
 [:bird: Demo and documentation](https://zorapeteri.github.io/react-tweet-card)
 
-<img width="500" src="https://user-images.githubusercontent.com/52820291/216845902-e4a499a9-adb2-45d0-b11d-aa31ea9c79ab.png">
+<img width="500" src="https://user-images.githubusercontent.com/52820291/220779168-86941d24-8b52-4fce-9a21-dc4789475e9b.png">
+
+<img width="500" src="https://user-images.githubusercontent.com/52820291/220778178-f7b34709-8fac-4fef-a058-e10cb57adfc4.png">
+
 
 ---
 
@@ -27,6 +30,7 @@ yarn add react-tweet-card
 - [X] Gradient and blurred container styles
 - [X] styled-components and emotion support
 - [X] TypeScript support
+- [X] Support for images in tweet
 - [X] Support for verified and protected Twitter accounts
 - [X] Support for @mentions in tweet
 - [X] Support for links in tweet

@@ -6,10 +6,10 @@ import Container from 'components/Container';
 import TwitterLogo from 'components/TwitterLogo';
 import Engagement from 'components/Engagement';
 import './index.css';
-import TweetImage from 'components/TweetImage';
+import TweetImages from 'components/TweetImages';
 import ThreadsLogo from 'components/ThreadsLogo';
-import { ThemeOption, TweetCardColors } from './themes';
 import Thread from 'components/Thread/Thread';
+import { ThemeOption, TweetCardColors } from './themes';
 
 export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
   author: {
@@ -27,7 +27,10 @@ export type TweetCardProps = React.HTMLAttributes<HTMLDivElement> & {
     likes?: number;
   };
   tweet: string;
-  tweetImages?: string[];
+  tweetImages?: {
+    src: string;
+    isVideoThumbnail?: boolean;
+  }[];
   time: Date | string;
   source?: string;
   permalink?: string;
@@ -62,7 +65,7 @@ const TweetCard = ({
     <UserDetails {...{ ...author, clickableProfileLink, threads }} />
     {threads ? <ThreadsLogo {...{ permalink, ...rest }} /> : <TwitterLogo {...{ permalink }} />}
     {threads ? <Thread {... { tweet }} /> : <Tweet {...{ tweet }} />}
-    {(tweetImages?.length ?? false) > 0 && <TweetImage {...{ tweetImages }} />}
+    {tweetImages?.length && <TweetImages {...{ tweetImages }} />}
     {showDetails && <Details {...{ time, source, permalink }} />}
     {showEngagement && <Engagement {...{ ...engagement, emojis, threads }} />}
   </Container>
