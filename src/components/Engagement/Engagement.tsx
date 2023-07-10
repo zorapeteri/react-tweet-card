@@ -8,13 +8,14 @@ import TwitterIcon from './Twitter';
 import Emoji from './Emoji';
 
 type EngagementProps = TweetCardProps['engagement'] &
-  Pick<TweetCardProps, 'emojis'>;
+  Pick<TweetCardProps, 'emojis' | 'threads'>;
 
 function Engagement({
   replies = 0,
   retweets = 0,
   likes = 0,
   emojis,
+  threads,
 }: EngagementProps) {
   if (!(replies || retweets || likes)) {
     return null;
@@ -25,6 +26,7 @@ function Engagement({
   return (
     <div
       {...className(css.engagement, globalClassName('engagement-container'))}
+      {...threads && { style: { maxWidth: '10em' } }}
     >
       <span
         role="img"
@@ -34,14 +36,16 @@ function Engagement({
         <icons.replies />
         {formatEngagement(replies)}
       </span>
-      <span
-        role="img"
-        aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}
-        className={globalClassName('retweets')}
-      >
-        <icons.retweets />
-        {formatEngagement(retweets)}
-      </span>
+      {!threads && (
+        <span
+          role="img"
+          aria-label={`${retweets} ${retweets === 1 ? 'retweet' : 'retweets'}`}
+          className={globalClassName('retweets')}
+        >
+          <icons.retweets />
+          {formatEngagement(retweets)}
+        </span>
+      )}
       <span
         role="img"
         aria-label={`${likes} ${likes === 1 ? 'like' : 'likes'}`}

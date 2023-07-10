@@ -32,6 +32,7 @@ const buildProps = (args: any) => {
     showDetails,
     gradientBackground,
     blurredBackground,
+    threads,
   } = args;
   const props: TweetCardProps = {
     author: {
@@ -55,6 +56,7 @@ const buildProps = (args: any) => {
     gradientBackground,
     blurredBackground,
     theme,
+    threads,
     ...(replies || likes || retweets
       ? { engagement: { replies, likes, retweets } }
       : {}),
@@ -87,6 +89,7 @@ const baseArgs = {
   theme: 'light',
   gradientBackground: false,
   blurredBackground: false,
+  threads: false
 };
 
 const Template: ComponentStory<any> = (args) => {

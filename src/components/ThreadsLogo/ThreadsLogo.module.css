@@ -1,0 +1,8 @@
+.threadsLogo {
+  height: 1.75em;
+  width: 1.75em;
+}
+.themeDark {
+  filter: invert(100%) sepia(0%) saturate(7476%) hue-rotate(322deg)
+    brightness(110%) contrast(100%);
+}

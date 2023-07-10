@@ -25,7 +25,8 @@ function findUsernames(str: string) {
 }
 
 function findLinks(str: string) {
-  const regex = /((\s|^)((((http|ftp|https):\/\/)*)([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])))/gm;
+  const regex =
+    /((\s|^)((((http|ftp|https):\/\/)*)([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])))/gm;
   return getGroups(str, regex, 3);
 }
 
@@ -40,7 +41,7 @@ function replaceLinks(str: string) {
   links.forEach((link) => {
     finalStr = finalStr.replace(
       link,
-      `<a target="_blank" class="react-tweet-card--link-in-tweet" href="${link}">${link}</a>`,
+      `<a target="_blank" class="react-tweet-card--link-in-tweet" href="${link}">${link}</a>`
     );
   });
   return finalStr;
@@ -52,7 +53,7 @@ function replaceUsernames(str: string) {
   usernames.forEach((username) => {
     finalStr = finalStr.replace(
       `@${username}`,
-      `<a target="_blank" class="react-tweet-card--username-in-tweet" href="https://twitter.com/${username}">@${username}</a>`,
+      `<a target="_blank" class="react-tweet-card--username-in-tweet" href="https://twitter.com/${username}">@${username}</a>`
     );
   });
   return finalStr;
@@ -64,17 +65,22 @@ function replaceHashtags(str: string) {
   hashtags.forEach((hashtag) => {
     finalStr = finalStr.replace(
       `#${hashtag}`,
-      `<a target="_blank" class="react-tweet-card--hashtag-in-tweet" href="https://twitter.com/hashtag/${hashtag}">#${hashtag}</a>`,
+      `<a target="_blank" class="react-tweet-card--hashtag-in-tweet" href="https://twitter.com/hashtag/${hashtag}">#${hashtag}</a>`
     );
   });
   return finalStr;
 }
 
 function replaceLinksUsernamesHashtags(el: HTMLElement) {
-  el.innerHTML = replaceHashtags(replaceUsernames(replaceLinks(el.textContent || '')));
+  el.innerHTML = replaceHashtags(
+    replaceUsernames(replaceLinks(el.textContent || ''))
+  );
 }
 
-const useLinksUsernamesHashtags = (ref: React.RefObject<HTMLElement>, text: string) => {
+const useLinksUsernamesHashtags = (
+  ref: React.RefObject<HTMLElement>,
+  text: string
+) => {
   useEffect(() => {
     if (ref?.current) {
       replaceLinksUsernamesHashtags(ref.current);
