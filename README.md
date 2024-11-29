@@ -1,3 +1,7 @@
+# ⚠️ This package is no longer maintained
+### Please see [react-bluesky-card](https://github.com/zorapeteri/react-bluesky-card) and [react-threads-card](https://github.com/zorapeteri/react-threads-card) for alternatives.
+The component will still work, however its dependencies are outdated and you might have trouble getting it to work with modern versions of React or your bundler of choice.
+
 # react-tweet-card
 
 [![NPM](https://img.shields.io/npm/v/react-tweet-card.svg)](https://www.npmjs.com/package/react-tweet-card)
